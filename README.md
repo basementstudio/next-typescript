@@ -10,7 +10,7 @@ The objective of this boilerplate is to set up everything the developer will nee
 ## Things to note
 
 - It comes with Inter (it's better to host fonts here rather than getting them from google fonts). Remove it if you are not going to use it.
-- Pages, components, etc... are located under `/src`.
+- Pages, components, etc... are located under `/src`. If you are changing this, be sure to also update `tsconfig.json`'s `baseUrl`.
 
 ## To use it
 
