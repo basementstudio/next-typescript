@@ -5,7 +5,7 @@ The objective of this boilerplate is to set up everything the developer will nee
 ## Featured aspects of the stack
 
 - Typescript
-- Next.JS
+- NextJS
 
 ## Things to note
 
