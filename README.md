@@ -12,32 +12,6 @@ The objective of this boilerplate is to set up everything the developer will nee
 - It comes with Inter (it's better to host fonts here rather than getting them from google fonts). Remove it if you are not going to use it.
 - Pages, components, etc... are located under `/src`. If you are changing this, be sure to also update `tsconfig.json`'s `baseUrl`.
 
-## To use it
-
-1. Clone repo
-
-```
-git clone https://github.com/basementstudio/next-typescript.git <your-project-name>
-```
-
-2. Remove remote origin
-
-```
-git remote rm origin
-```
-
-3. Add the origin of your new repo
-
-```
-git remote add origin https://github.com/user/repo.git
-```
-
-3. Start
-
-```
-yarn && yarn dev
-```
-
 ---
 
 Let's go 🚀
