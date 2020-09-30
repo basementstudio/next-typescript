@@ -45,6 +45,8 @@
   "eslintConfig": {
     "parser": "@typescript-eslint/parser",
     "plugins": [
+      "react",
+      "react-hooks",
       "@typescript-eslint"
     ],
     "extends": [
@@ -72,6 +74,11 @@
       "@typescript-eslint/no-var-requires": 0,
       "@typescript-eslint/no-use-before-define": 0,
       "@typescript-eslint/ban-ts-comment": 0,
+      "react-hooks/exhaustive-deps": "warn",
+      "curly": [
+        "error",
+        "multi-line"
+      ],
       "@typescript-eslint/no-unused-vars": [
         2,
         {
@@ -91,6 +98,11 @@
         "warn"
       ],
       "@typescript-eslint/explicit-module-boundary-types": "off"
+    },
+    "settings": {
+      "react": {
+        "version": "detect"
+      }
     }
   },
   "husky": {
