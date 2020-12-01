@@ -79,6 +79,12 @@
         "error",
         "multi-line"
       ],
+      "react/jsx-no-target-blank": [
+        2,
+        {
+          "allowReferrer": true
+        }
+      ],
       "@typescript-eslint/no-unused-vars": [
         2,
         {
