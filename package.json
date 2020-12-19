@@ -13,9 +13,9 @@
     "lint": "eslint . --ext ts --ext tsx --ext js"
   },
   "dependencies": {
-    "next": "^9.5.3",
-    "react": "latest",
-    "react-dom": "latest"
+    "next": "^10.0.3",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1"
   },
   "devDependencies": {
     "@types/node": "^14.0.27",
