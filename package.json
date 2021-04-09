@@ -11,12 +11,8 @@
     "build:analyze": "cross-env ANALYZE=true npm run build",
     "start": "next start",
     "type-check": "tsc --pretty --noEmit",
-    "lint": "run-p lint:ts lint:css",
-    "lint:fix": "run-p lint:ts:fix lint:css:fix",
-    "lint:ts": "eslint . --ext ts --ext tsx --ext js",
-    "lint:ts:fix": "yarn lint:ts --fix",
-    "lint:css": "stylelint \"**/*.css\"",
-    "lint:css:fix": "yarn lint:css --fix"
+    "lint": "eslint . --ext ts --ext tsx --ext js",
+    "lint:fix": "yarn lint --fix"
   },
   "dependencies": {
     "clsx": "^1.1.1",
@@ -170,12 +166,6 @@
       "declaration-block-trailing-semicolon": null,
       "no-descending-specificity": null,
       "number-leading-zero": null
-    }
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged",
-      "pre-push": "yarn run type-check"
     }
   },
   "lint-staged": {
