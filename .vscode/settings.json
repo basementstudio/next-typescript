@@ -3,5 +3,8 @@
   "editor.formatOnSave": true,
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": true
-  }
+  },
+  "css.validate": false,
+  "less.validate": false,
+  "scss.validate": false,
 }
