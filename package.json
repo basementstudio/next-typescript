@@ -26,7 +26,7 @@
     "@types/react": "^17.0.3",
     "@types/react-dom": "^17.0.3",
     "@typescript-eslint/eslint-plugin": "^4.20.0",
-    "@typescript-eslint/parser": "^4.21.0",
+    "@typescript-eslint/parser": "^4.22.0",
     "babel-plugin-optimize-clsx": "^2.6.1",
     "cross-env": "^7.0.3",
     "eslint": "^7.24.0",
