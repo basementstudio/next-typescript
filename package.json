@@ -1,10 +1,10 @@
 {
   "name": "next-typescript",
-  "version": "0.2.0",
+  "version": "1.0.0",
   "description": "A boilerplate for using NextJS with Typescript",
   "repository": "https://github.com/basementstudio/next-typescript",
   "author": "Basement",
-  "private": false,
+  "private": true,
   "scripts": {
     "dev": "next",
     "build": "next build",
