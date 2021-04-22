@@ -1,7 +1,7 @@
 {
   "recommendations": [
     "bradlc.vscode-tailwindcss",
-    "csstools.postcss",
+    "heybourn.headwind",
     "dbaeumer.vscode-eslint",
     "esbenp.prettier-vscode",
     "stylelint.vscode-stylelint"
