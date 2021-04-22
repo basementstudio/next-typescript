@@ -131,6 +131,9 @@
     }
   },
   "stylelint": {
+    "ignoreFiles": [
+      "**/*.{ts,tsx,js,jsx}"
+    ],
     "extends": [
       "stylelint-config-standard"
     ],
