@@ -12,7 +12,8 @@
     "start": "next start",
     "type-check": "tsc --pretty --noEmit",
     "lint": "eslint . --ext ts --ext tsx --ext js",
-    "lint:fix": "yarn lint --fix"
+    "lint:fix": "yarn lint --fix",
+    "prepare": "husky install"
   },
   "dependencies": {
     "clsx": "^1.1.1",
