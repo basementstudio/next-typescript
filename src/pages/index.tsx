@@ -1,5 +1,12 @@
-import Hello from 'components/hello'
+import PageLayout from 'components/layout/page'
+import Button from 'components/primitives/button'
 
-const HomePage = () => <Hello who="Typescript" />
+const HomePage = () => {
+  return (
+    <PageLayout>
+      <Button>Hola!</Button>
+    </PageLayout>
+  )
+}
 
 export default HomePage
