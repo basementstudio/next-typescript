@@ -963,10 +963,10 @@
   resolved "https://registry.yarnpkg.com/@hapi/hoek/-/hoek-9.1.1.tgz#9daf5745156fd84b8e9889a2dc721f0c58e894aa"
   integrity sha512-CAEbWH7OIur6jEOzaai83jq3FmKmv4PmX1JYfs9IrYcGEVI/lyL1EXJGCj7eFVJ0bg5QR8LMxBlEtA+xKiLpFw==
 
-"@next/bundle-analyzer@^10.2.2":
-  version "10.2.2"
-  resolved "https://registry.yarnpkg.com/@next/bundle-analyzer/-/bundle-analyzer-10.2.2.tgz#ab3cb6f3bd12157a7950a59361bf196a7fea100d"
-  integrity sha512-aqFikByfY1EUnscZJTEAxKcGqKcqdYC4v2CBKQcay8W5XBHoiGFBcficVoRQbLF5fyAoYIJzsBVzxoOSYIZ7eg==
+"@next/bundle-analyzer@^11.0.1":
+  version "11.0.1"
+  resolved "https://registry.yarnpkg.com/@next/bundle-analyzer/-/bundle-analyzer-11.0.1.tgz#6f5d617ae861346ac9bf6a1e7bd05444a7fedcc1"
+  integrity sha512-/+VqZsEu1Q19PlJyNrXJ0qNuYVH1ZiA9fz3G1tiTLdJmHHt4SeAqiBejHvuy8nkttGnHg7uUTdycvVujK0IcQQ==
   dependencies:
     webpack-bundle-analyzer "4.3.0"
 
