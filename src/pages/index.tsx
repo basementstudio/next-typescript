@@ -4,7 +4,7 @@ import Button from 'components/primitives/button'
 const HomePage = () => {
   return (
     <PageLayout>
-      <Button>Hola!</Button>
+      <Button>Hola mundo</Button>
     </PageLayout>
   )
 }
