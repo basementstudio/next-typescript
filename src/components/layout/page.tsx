@@ -2,17 +2,6 @@ import Container, { ContainerProps } from './container'
 import { NextSeo } from 'next-seo'
 import Head from 'next/head'
 
-type Props = {
-  children?: React.ReactNode
-  contain?: boolean | ContainerProps
-  seo?: SeoProps
-
-  // TODO after implementing head, header, footer
-  // headProps: HeadProps
-  // headerProps: HeaderProps
-  // footerProps: FooterProps
-}
-
 type SeoProps = {
   title?: string
   description?: string
@@ -35,6 +24,17 @@ type SeoProps = {
     cardType?: string
   }
   favicon?: string
+}
+
+type Props = {
+  children?: React.ReactNode
+  contain?: boolean | ContainerProps
+  seo?: SeoProps
+
+  // TODO after implementing head, header, footer
+  // headProps: HeadProps
+  // headerProps: HeaderProps
+  // footerProps: FooterProps
 }
 
 const defaultSeo: SeoProps = {
