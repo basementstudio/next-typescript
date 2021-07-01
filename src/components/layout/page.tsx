@@ -2,7 +2,7 @@ import Container, { ContainerProps } from './container'
 import { NextSeo } from 'next-seo'
 import Head from 'next/head'
 
-type SeoProps = {
+type HeadProps = {
   title?: string
   description?: string
   canonical?: string
@@ -29,15 +29,14 @@ type SeoProps = {
 type Props = {
   children?: React.ReactNode
   contain?: boolean | ContainerProps
-  seo?: SeoProps
+  seo?: HeadProps
 
   // TODO after implementing head, header, footer
-  // headProps: HeadProps
   // headerProps: HeaderProps
   // footerProps: FooterProps
 }
 
-const defaultSeo: SeoProps = {
+const defaultHead: HeadProps = {
   title: 'next-typescript | basement.studio',
   description: 'next-typescript | basement.studio',
   canonical: 'https://www.basement.studio',
@@ -63,7 +62,7 @@ const defaultSeo: SeoProps = {
   favicon: '/favicon.png'
 }
 
-const PageLayout = ({ children, contain, seo = defaultSeo }: Props) => {
+const PageLayout = ({ children, contain, seo = defaultHead }: Props) => {
   return (
     <>
       <NextSeo
