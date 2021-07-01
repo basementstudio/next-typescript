@@ -1,5 +1,6 @@
 import Container, { ContainerProps } from './container'
 import { NextSeo } from 'next-seo'
+import Head from 'next/head'
 
 type Props = {
   children?: React.ReactNode
@@ -13,26 +14,27 @@ type Props = {
 }
 
 type SeoProps = {
-  title: string
-  description: string
-  canonical: string
-  openGraph: {
-    url: string
-    title: string
-    description: string
-    images: {
+  title?: string
+  description?: string
+  canonical?: string
+  openGraph?: {
+    url?: string
+    title?: string
+    description?: string
+    images?: {
       url: string
       width?: number
       height?: number
       alt?: string
     }[]
-    site_name: string
+    site_name?: string
   }
-  twitter: {
+  twitter?: {
     handle: string
     site?: string
     cardType?: string
   }
+  favicon?: string
 }
 
 const defaultSeo: SeoProps = {
@@ -57,7 +59,8 @@ const defaultSeo: SeoProps = {
     handle: '@basementdot',
     site: '@basementdot',
     cardType: 'summary_large_image'
-  }
+  },
+  favicon: '/favicon.png'
 }
 
 const PageLayout = ({ children, contain, seo = defaultSeo }: Props) => {
@@ -70,6 +73,10 @@ const PageLayout = ({ children, contain, seo = defaultSeo }: Props) => {
         openGraph={seo.openGraph}
         twitter={seo.twitter}
       />
+      <Head>
+        <link rel="icon" href={seo.favicon} />
+        <link rel="mask-icon" href={seo.favicon} />
+      </Head>
       {/* TODO Header */}
       {/* <Header /> */}
       <main>
