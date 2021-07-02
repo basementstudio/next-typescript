@@ -11,6 +11,7 @@
     "build:analyze": "cross-env ANALYZE=true npm run build",
     "start": "next start",
     "type-check": "tsc --pretty --noEmit",
+    "postbuild": "next-sitemap",
     "lint": "eslint . --ext ts --ext tsx --ext js",
     "lint:fix": "yarn lint --fix",
     "prepare": "husky install"
@@ -19,6 +20,7 @@
     "@radix-ui/react-polymorphic": "^0.0.12",
     "clsx": "^1.1.1",
     "next": "^11.0.1",
+    "next-sitemap": "^1.6.124",
     "react": "^17.0.2",
     "react-dom": "^17.0.2"
   },
