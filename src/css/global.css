@@ -2,9 +2,30 @@
 @import './inter.css';
 
 :root {
-  --font-system: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  --font-system:
+    -apple-system,
+    blinkmacsystemfont,
+    segoe ui,
+    roboto,
+    oxygen,
+    ubuntu,
+    cantarell,
+    fira sans,
+    droid sans,
+    helvetica neue,
+    sans-serif;
   --font-body: 'Inter', var(--font-system), sans-serif;
+}
+
+html {
+  line-height: 1.5;
+  -webkit-text-size-adjust: 100%;
+  box-sizing: border-box;
+  text-rendering: geometricPrecision;
+  -webkit-font-smoothing: antialiased;
+  -webkit-font-smoothing: subpixel-antialiased;
+  -moz-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 body {
