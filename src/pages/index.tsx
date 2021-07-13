@@ -3,8 +3,8 @@ import Button from 'components/primitives/button'
 
 const HomePage = () => {
   return (
-    <PageLayout>
-      <Button>Hola!</Button>
+    <PageLayout headProps={{ title: 'next-typescript | basement.studio' }}>
+      <Button>Hola mundo.</Button>
     </PageLayout>
   )
 }

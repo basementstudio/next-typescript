@@ -1,5 +1,5 @@
 module.exports = {
-  siteUrl: 'https://next-typescript-two.vercel.app/',
+  siteUrl: 'https://next-typescript.basement.studio/',
   generateRobotsTxt: true,
   exclude: []
 }
