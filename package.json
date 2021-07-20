@@ -28,7 +28,7 @@
     "@next/bundle-analyzer": "^11.0.1",
     "@types/node": "^15.12.4",
     "@types/react": "^17.0.14",
-    "@types/react-dom": "^17.0.6",
+    "@types/react-dom": "^17.0.9",
     "@typescript-eslint/eslint-plugin": "^4.28.0",
     "@typescript-eslint/parser": "^4.28.2",
     "babel-plugin-optimize-clsx": "^2.6.2",
@@ -52,6 +52,12 @@
     "stylelint-config-standard": "^22.0.0",
     "typescript": "^4.3.4"
   },
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
+  ],
   "babel": {
     "presets": [
       "next/babel"
