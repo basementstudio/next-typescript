@@ -19,6 +19,7 @@
   "dependencies": {
     "@radix-ui/react-polymorphic": "^0.0.12",
     "clsx": "^1.1.1",
+    "faunadb": "^4.3.0",
     "next": "^11.0.1",
     "next-seo": "^4.26.0",
     "react": "^17.0.2",
