@@ -13,7 +13,10 @@
     "type-check": "tsc --pretty --noEmit",
     "postbuild": "next-sitemap",
     "lint": "eslint . --ext ts --ext tsx --ext js",
+    "lint:css": "stylelint '**/*.{css,scss}'",
     "lint:fix": "yarn lint --fix",
+    "lint:css:fix": "yarn lint:css --fix",
+    "lint-all:fix": "yarn lint:fix && yarn lint:css:fix",
     "prepare": "husky install"
   },
   "dependencies": {
@@ -155,10 +158,21 @@
         {
           "ignoreAtRules": [
             "tailwind",
+            "layer",
             "apply",
             "variants",
             "responsive",
-            "screen"
+            "screen",
+            "include",
+            "for",
+            "mixin",
+            "if",
+            "else",
+            "warn",
+            "return",
+            "function",
+            "use",
+            "each"
           ]
         }
       ],
@@ -185,7 +199,7 @@
   },
   "lint-staged": {
     "*.@(ts|tsx)": [
-      "yarn lint:fix"
+      "yarn lint-all:fix"
     ]
   }
 }
