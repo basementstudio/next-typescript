@@ -194,11 +194,12 @@
       ],
       "declaration-block-trailing-semicolon": null,
       "no-descending-specificity": null,
-      "number-leading-zero": null
+      "number-leading-zero": null,
+      "length-zero-no-unit": null
     }
   },
   "lint-staged": {
-    "*.@(ts|tsx)": [
+    "*.@(ts|tsx|css|scss)": [
       "yarn lint-all:fix"
     ]
   }
