@@ -2,17 +2,15 @@ import { NextApiResponse } from 'next'
 
 // Some helpers for usual http responses
 
-const formatError = (e: unknown) => {
+const formatError = (e: unknown): { message: string } => {
   try {
-    if (typeof e === 'string' ? { message: e } : e) {
-      switch (typeof e) {
-        case 'string':
-          return { message: e }
-        default:
-        case 'object': {
-          const anyError = e as any
-          return { message: anyError.message, code: anyError.code }
-        }
+    switch (typeof e) {
+      case 'string':
+        return { message: e }
+      default:
+      case 'object': {
+        const anyError = e as any
+        return formatError(anyError.message || anyError.error)
       }
     }
   } catch (error) {
