@@ -60,14 +60,6 @@
     "not ie <= 11",
     "not op_mini all"
   ],
-  "babel": {
-    "presets": [
-      "next/babel"
-    ],
-    "plugins": [
-      "babel-plugin-optimize-clsx"
-    ]
-  },
   "prettier": {
     "semi": false,
     "singleQuote": true,
