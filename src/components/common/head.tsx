@@ -42,10 +42,6 @@ const Head = (props: HeadProps) => {
       <NextSeo {...nextSeoProps} />
       <NextHead>
         <meta charSet="utf-8" />
-        <meta
-          name="viewport"
-          content="minimum-scale=1, initial-scale=1, width=device-width, user-scalable=0"
-        />
         <meta name="theme-color" content="#ffffff" />
         <link rel="icon" href={isDark ? '/favicon-dark.svg' : '/favicon.svg'} />
         <link rel="mask-icon" href="/favicon.svg" color="#000" />
