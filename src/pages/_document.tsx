@@ -1,3 +1,4 @@
+import { GAScripts } from 'lib/ga'
 import Document, {
   Html,
   Head,
@@ -19,6 +20,7 @@ class MyDocument extends Document {
         <body>
           <Main />
           <NextScript />
+          <GAScripts />
         </body>
       </Html>
     )
