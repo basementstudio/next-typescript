@@ -1,13 +1,13 @@
-import { useState, useEffect } from 'react'
+import * as React from 'react'
 
 const isApiSupported = (api: string) => api in window
 
 const useMedia = (mediaQuery: string, initialValue?: boolean) => {
-  const [isVerified, setIsVerified] = useState<boolean | undefined>(
+  const [isVerified, setIsVerified] = React.useState<boolean | undefined>(
     initialValue
   )
 
-  useEffect(() => {
+  React.useEffect(() => {
     if (!isApiSupported('matchMedia')) {
       console.warn('matchMedia is not supported by your current browser')
       return

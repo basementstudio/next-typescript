@@ -1,7 +1,6 @@
+import * as React from 'react'
 import { useRouter } from 'next/router'
-import { useEffect } from 'react'
-
-export const GA_TRACKING_ID = '<your-tracking-code>' // TODO add tracking code
+import { gaTrackingId } from './constants'
 
 declare global {
   interface Window {
@@ -11,7 +10,7 @@ declare global {
 
 // https://developers.google.com/analytics/devguides/collection/gtagjs/pages
 export const pageview = (url: string) => {
-  window.gtag('config', GA_TRACKING_ID, {
+  window.gtag('config', gaTrackingId, {
     page_path: url
   })
 }
@@ -41,11 +40,11 @@ export const GAScripts = () => {
     <>
       <script
         async
-        src={`https://www.googletagmanager.com/gtag/js?id=${GA_TRACKING_ID}`}
+        src={`https://www.googletagmanager.com/gtag/js?id=${gaTrackingId}`}
       />
       <script
         dangerouslySetInnerHTML={{
-          __html: `window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());gtag('config', '${GA_TRACKING_ID}');`
+          __html: `window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());gtag('config', '${gaTrackingId}');`
         }}
       />
     </>
@@ -56,7 +55,7 @@ export const GAScripts = () => {
 export const useAppGA = () => {
   const router = useRouter()
 
-  useEffect(() => {
+  React.useEffect(() => {
     const handleRouteChange = (url: string) => {
       pageview(url)
     }

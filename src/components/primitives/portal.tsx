@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react'
+import * as React from 'react'
 import { createPortal } from 'react-dom'
 
 type Props = { id?: string; onMount?: () => void }
@@ -8,10 +8,10 @@ const Portal: React.FC<Props> = ({
   id = 'my-awesome-portal',
   onMount
 }) => {
-  const ref = useRef<HTMLElement>()
-  const [isMounted, setIsMounted] = useState(false)
+  const ref = React.useRef<HTMLElement>()
+  const [isMounted, setIsMounted] = React.useState(false)
 
-  useEffect(() => {
+  React.useEffect(() => {
     let portal: HTMLElement | undefined = undefined
     const existingPortal = document.getElementById(id) as HTMLElement | null
     if (existingPortal) {
@@ -25,7 +25,7 @@ const Portal: React.FC<Props> = ({
     setIsMounted(true)
   }, [id])
 
-  useEffect(() => {
+  React.useEffect(() => {
     if (isMounted && onMount) onMount()
   }, [isMounted, onMount])
 

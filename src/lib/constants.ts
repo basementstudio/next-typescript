@@ -9,3 +9,17 @@ export const siteURL = new URL(
     (isDev ? 'http://localhost:3000' : 'https://basement.studio') // TODO: use your actual production url as default
 )
 export const siteOrigin = siteURL.origin
+
+// todo update this data
+export const defaultMeta = {
+  title: 'next-typescript | basement.studio',
+  description: `A minimalist's boilerplate — Next.js with TypeScript.`,
+  ogImage: `${siteOrigin}/og.png`,
+  twitter: {
+    handle: '@basementstudio',
+    site: '@basementstudio'
+  }
+}
+
+// todo update this data
+export const gaTrackingId = '<your-tracking-id>'

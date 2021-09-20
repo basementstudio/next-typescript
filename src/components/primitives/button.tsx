@@ -2,7 +2,7 @@ import type * as Polymorphic from '@radix-ui/react-polymorphic'
 import clsx from 'clsx'
 import { checkIsExternal } from 'lib/utils/router'
 import Link, { LinkProps } from 'next/link'
-import { forwardRef, useMemo } from 'react'
+import * as React from 'react'
 
 // Here you'll put custom props, such as `isLoading`, `variant`, `size`...
 export type ButtonProps = {
@@ -22,7 +22,7 @@ export type ButtonProps = {
  *
  * Also, below the `Button` is a `ButtonLink` that automatically wraps `NextLink` to it ✨
  */
-const Button = forwardRef(
+const Button = React.forwardRef(
   ({ as: Comp = 'button', className, disabled, isLoading, ...props }, ref) => {
     return (
       <Comp
@@ -44,7 +44,7 @@ export type ButtonLinkProps = ButtonProps &
   Omit<JSX.IntrinsicElements['a'], 'href'> &
   NextLinkProps & { notExternal?: boolean }
 
-export const ButtonLink = forwardRef<'a', ButtonLinkProps>(
+export const ButtonLink = React.forwardRef<'a', ButtonLinkProps>(
   ({
     // NextLinkProps
     href,
@@ -57,7 +57,7 @@ export const ButtonLink = forwardRef<'a', ButtonLinkProps>(
     notExternal,
     ...props
   }) => {
-    const externalProps = useMemo(() => {
+    const externalProps = React.useMemo(() => {
       const p = { target: '_blank', rel: 'noopener' }
       if (typeof href === 'string') {
         if (checkIsExternal(href)) return p

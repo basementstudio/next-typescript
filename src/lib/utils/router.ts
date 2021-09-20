@@ -46,7 +46,7 @@ export const getHrefWithQuery = (
 export type TransitionOptions = Parameters<NextRouter['push']>['2']
 
 /**
- * Don't use this inside a useEffect with `router` as a dependency (infinite loop alert).
+ * Don't use this inside a useEffect with `router` as a dependency (watch out for infinite loops).
  */
 export const makeQuery = (
   router: NextRouter,
