@@ -20,7 +20,7 @@
     "prepare": "husky install"
   },
   "dependencies": {
-    "@radix-ui/react-polymorphic": "^0.0.13",
+    "@radix-ui/react-polymorphic": "^0.0.14",
     "clsx": "^1.1.1",
     "mousetrap": "^1.6.5",
     "next": "^11.1.2",
