@@ -37,7 +37,7 @@ const Welcome = () => (
           📝 You can find some utils on our gists notion.&nbsp;
           <a
             target="_blank"
-            href="https://www.notion.so/basementstudio/09383099eb9d415b952af95d5e6a82cc?v=a5d4e739a25a4c3193d7f16e87bdf94e"
+            href="https://basementstudio.notion.site/09383099eb9d415b952af95d5e6a82cc?v=a5d4e739a25a4c3193d7f16e87bdf94e"
             rel="noreferrer"
           >
             Check it out!
@@ -58,7 +58,7 @@ const Welcome = () => (
         <p>
           💣 Pssst... You should delete this welcome component, it's under
           &nbsp;
-          <code>components/common/welcome</code>.
+          <code>./src/components/common/welcome</code>.
         </p>
       </div>
     </div>
