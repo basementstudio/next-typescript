@@ -1,8 +1,7 @@
 import * as React from 'react'
+import { isApiSupported } from 'lib/utils'
 
-const isApiSupported = (api: string) => api in window
-
-const useMedia = (mediaQuery: string, initialValue?: boolean) => {
+export const useMedia = (mediaQuery: string, initialValue?: boolean) => {
   const [isVerified, setIsVerified] = React.useState<boolean | undefined>(
     initialValue
   )
@@ -31,5 +30,3 @@ const useMedia = (mediaQuery: string, initialValue?: boolean) => {
 
   return isVerified
 }
-
-export { useMedia }

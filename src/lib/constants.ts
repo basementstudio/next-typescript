@@ -10,6 +10,20 @@ export const siteURL = new URL(
 )
 export const siteOrigin = siteURL.origin
 
+// this is not used anywhere — just for our (basement.) projects.
+// you can delete it 🙂
+export const basementLog = `
+
+   ██╗
+   ██║
+   ██████╗
+   ██╔══██╗  ██╗
+   ██████╔╝  ██╝
+   ╚═════╝   
+                                                                                
+   From the basement. https://basement.studio
+`
+
 // todo update this data
 export const defaultMeta = {
   title: 'next-typescript | basement.studio',

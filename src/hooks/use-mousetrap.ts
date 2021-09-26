@@ -1,4 +1,4 @@
-import { useEffect } from 'react'
+import * as React from 'react'
 import mousetrap from 'mousetrap'
 
 type MousetrapParameters = Parameters<typeof mousetrap.bind>
@@ -9,8 +9,8 @@ export type Traps = {
   action?: MousetrapParameters['2']
 }[]
 
-const useMousetraps = (traps: Traps, bind = true) => {
-  useEffect(() => {
+export const useMousetrap = (traps: Traps, bind = true) => {
+  React.useEffect(() => {
     if (bind) {
       traps.forEach(({ keys, callback, action }) =>
         mousetrap.bind(keys, callback, action)
@@ -21,5 +21,3 @@ const useMousetraps = (traps: Traps, bind = true) => {
     }
   }, [traps, bind])
 }
-
-export default useMousetraps
