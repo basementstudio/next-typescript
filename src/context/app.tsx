@@ -8,14 +8,19 @@ export const AppContextProvider: React.FC = ({ children }) => {
   const [fontsLoaded, setFontsLoaded] = React.useState(false)
 
   React.useEffect(() => {
-    document.fonts.ready
-      .then(() => {
-        setFontsLoaded(true)
-      })
-      .catch((error: unknown) => {
-        console.error(error)
-        setFontsLoaded(true)
-      })
+    try {
+      document.fonts.ready
+        .then(() => {
+          setFontsLoaded(true)
+        })
+        .catch((error: unknown) => {
+          console.error(error)
+          setFontsLoaded(true)
+        })
+    } catch (error) {
+      console.error(error)
+      setFontsLoaded(true)
+    }
   }, [])
 
   return (
