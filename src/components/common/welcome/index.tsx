@@ -58,7 +58,7 @@ const Welcome = () => (
         <p>
           💣 Pssst... You should delete this welcome component, it's under
           &nbsp;
-          <code>components/common/welcome</code>.
+          <code>./src/components/common/welcome</code>.
         </p>
       </div>
     </div>
