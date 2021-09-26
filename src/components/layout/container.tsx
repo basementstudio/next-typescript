@@ -1,12 +1,12 @@
 import type * as Polymorphic from '@radix-ui/react-polymorphic'
 import clsx from 'clsx'
-import { forwardRef } from 'react'
+import * as React from 'react'
 
 type Props = {
   children?: React.ReactNode
 }
 
-const Container = forwardRef(
+const Container = React.forwardRef(
   ({ as: Comp = 'div', className, ...props }, ref) => {
     return (
       <Comp

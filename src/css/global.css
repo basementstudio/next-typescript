@@ -18,6 +18,7 @@
     helvetica neue,
     sans-serif;
   --font-body: 'Inter', var(--font-system), sans-serif;
+  --inspect-color: #f00;
 }
 
 html {
@@ -33,4 +34,8 @@ html {
 
 body {
   font-family: var(--font-body);
+}
+
+body.inspect * {
+  outline: 1px solid var(--inspect-color) !important;
 }

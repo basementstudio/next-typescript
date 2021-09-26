@@ -1,17 +1,17 @@
-import { useCallback, useState } from 'react'
+import * as React from 'react'
 
 export const useToggleState = (initialState = false) => {
-  const [isOn, setIsOn] = useState(initialState)
+  const [isOn, setIsOn] = React.useState(initialState)
 
-  const handleOn = useCallback(() => {
+  const handleOn = React.useCallback(() => {
     setIsOn(true)
   }, [])
 
-  const handleOff = useCallback(() => {
+  const handleOff = React.useCallback(() => {
     setIsOn(false)
   }, [])
 
-  const handleToggle = useCallback(() => {
+  const handleToggle = React.useCallback(() => {
     setIsOn((p) => !p)
   }, [])
 
