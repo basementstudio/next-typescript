@@ -1,5 +1,5 @@
 import { NextApiResponse } from 'next'
-import { formatError } from './utils'
+import { formatError } from '~/lib/utils'
 
 // Some helpers for usual http responses
 

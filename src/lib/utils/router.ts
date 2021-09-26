@@ -1,5 +1,5 @@
-import { siteOrigin } from 'lib/constants'
 import { NextRouter } from 'next/dist/client/router'
+import { siteOrigin } from '~/lib/constants'
 
 export type QueryParams = { [key: string]: string | null }
 

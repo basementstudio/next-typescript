@@ -1,8 +1,8 @@
 import type * as Polymorphic from '@radix-ui/react-polymorphic'
 import clsx from 'clsx'
-import { checkIsExternal } from 'lib/utils/router'
 import Link, { LinkProps } from 'next/link'
 import * as React from 'react'
+import { checkIsExternal } from '~/lib/utils/router'
 
 // Here you'll put custom props, such as `isLoading`, `variant`, `size`...
 export type ButtonProps = {

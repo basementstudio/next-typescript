@@ -1,9 +1,9 @@
 import { NextSeo, NextSeoProps } from 'next-seo'
-import { defaultMeta, siteOrigin } from 'lib/constants'
 import { useRouter } from 'next/dist/client/router'
-import * as React from 'react'
 import NextHead from 'next/head'
-import { useMedia } from 'hooks/use-media'
+import * as React from 'react'
+import { useMedia } from '~/hooks/use-media'
+import { defaultMeta, siteOrigin } from '~/lib/constants'
 
 type Meta = {
   title?: string
