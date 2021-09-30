@@ -46,6 +46,8 @@
     "eslint-plugin-prettier": "^4.0.0",
     "eslint-plugin-react": "^7.26.0",
     "eslint-plugin-react-hooks": "^4.2.0",
+    "eslint-plugin-simple-import-sort": "^7.0.0",
+    "eslint-plugin-import": "^2.24.2",
     "husky": "^7.0.1",
     "lint-staged": "^11.1.2",
     "next-compose-plugins": "^2.2.1",
@@ -80,10 +82,13 @@
     "plugins": [
       "react",
       "react-hooks",
+      "simple-import-sort",
       "@typescript-eslint"
     ],
     "extends": [
       "eslint:recommended",
+      "plugin:import/recommended",
+      "plugin:import/typescript",
       "plugin:react/recommended",
       "plugin:@typescript-eslint/recommended",
       "prettier",
@@ -106,6 +111,8 @@
       "@typescript-eslint/no-var-requires": 0,
       "@typescript-eslint/no-use-before-define": 0,
       "@typescript-eslint/ban-ts-comment": 0,
+      "simple-import-sort/imports": "error",
+      "simple-import-sort/exports": "error",
       "react-hooks/exhaustive-deps": "warn",
       "react/no-unescaped-entities": 0,
       "curly": [
@@ -139,6 +146,20 @@
       "@typescript-eslint/explicit-module-boundary-types": "off"
     },
     "settings": {
+      "import/resolver": {
+        "node": {
+          "extensions": [
+            ".js",
+            ".jsx",
+            ".ts",
+            ".tsx"
+          ],
+          "moduleDirectory": [
+            "node_modules",
+            "src/"
+          ]
+        }
+      },
       "react": {
         "version": "detect"
       }
