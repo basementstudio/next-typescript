@@ -1,5 +1,6 @@
+import Head, { HeadProps } from '~/components/common/head'
+
 import { Container, ContainerProps } from './container'
-import Head, { HeadProps } from 'components/common/head'
 
 type Props = {
   children?: React.ReactNode
