@@ -1,11 +1,11 @@
 import * as React from 'react'
 import { createPortal } from 'react-dom'
 
-type Props = { id?: string; onMount?: () => void }
+export type PortalProps = { id?: string; onMount?: () => void }
 
-const Portal: React.FC<Props> = ({
+export const Portal: React.FC<PortalProps> = ({
   children,
-  id = 'my-awesome-portal',
+  id = 'next-typescript-portal',
   onMount
 }) => {
   const ref = React.useRef<HTMLElement>()
@@ -31,5 +31,3 @@ const Portal: React.FC<Props> = ({
 
   return isMounted && ref.current ? createPortal(children, ref.current) : null
 }
-
-export default Portal

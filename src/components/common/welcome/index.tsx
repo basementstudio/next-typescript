@@ -1,5 +1,4 @@
 import GameOfLife from './game-of-life'
-
 import s from './welcome.module.css'
 
 const Welcome = () => (
