@@ -42,12 +42,13 @@
     "eslint": "^7.32.0",
     "eslint-config-next": "^11.1.0",
     "eslint-config-prettier": "^8.3.0",
+    "eslint-import-resolver-typescript": "^2.5.0",
+    "eslint-plugin-import": "^2.24.2",
     "eslint-plugin-jsx-a11y": "^6.4.1",
     "eslint-plugin-prettier": "^4.0.0",
     "eslint-plugin-react": "^7.26.0",
     "eslint-plugin-react-hooks": "^4.2.0",
     "eslint-plugin-simple-import-sort": "^7.0.0",
-    "eslint-plugin-import": "^2.24.2",
     "husky": "^7.0.1",
     "lint-staged": "^11.1.2",
     "next-compose-plugins": "^2.2.1",
@@ -146,18 +147,16 @@
       "@typescript-eslint/explicit-module-boundary-types": "off"
     },
     "settings": {
+      "import/parsers": {
+        "@typescript-eslint/parser": [
+          ".ts",
+          ".tsx"
+        ]
+      },
       "import/resolver": {
-        "node": {
-          "extensions": [
-            ".js",
-            ".jsx",
-            ".ts",
-            ".tsx"
-          ],
-          "moduleDirectory": [
-            "node_modules",
-            "src/"
-          ]
+        "typescript": {
+          "alwaysTryTypes": true,
+          "project": "."
         }
       },
       "react": {
