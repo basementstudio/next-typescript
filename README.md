@@ -1,45 +1,68 @@
-# next-typescript
+# basehub
 
-[![from the basement.](https://basement.studio/gh-badge.svg)](https://basement.studio)
+## Getting Started
 
-The objective of this boilerplate is to set up everything the developer will need (in terms of configuration) to start a next + typescript project. Eslint, prettier and husky are configured to work independent of the user's IDE configuration (as long as it's vscode).
+```bash
+yarn && yarn dev
+```
 
-## Featured Aspects of the Stack
+## Database
 
-- Typescript
-- NextJS
+We use PlanetScale as our main database. We connect to PlanetScale via Prisma.
 
-## Things to Note
+- Go to PlanetScale dashboard: [https://app.planetscale.com/basementstudio/basehub-prisma/](https://app.planetscale.com/basementstudio/basehub-prisma/).
+- Read PlanetScale docs: [https://docs.planetscale.com/](https://docs.planetscale.com/).
+- Read Prisma docs: [https://www.prisma.io/docs/](https://www.prisma.io/docs/).
 
-- It comes with Inter (it's better to host fonts here rather than getting them from google fonts).
-- Pages, components, etc... are located under `/src`. If you are changing this, be sure to also update `tsconfig.json`'s `baseUrl`.
+### Getting Started with PlanetScale
 
-## Get Started
+1. Go through the [PlanetScale environment set up](https://docs.planetscale.com/reference/planetscale-environment-setup).
+2. Login
 
-1. Install yarn:
+```bash
+pscale auth login
+```
 
-   ```
-   npm install -g yarn
-   ```
+3. Switch to `basementstudio` org:
 
-2. Install the dependencies with:
+```bash
+pscale org switch basementstudio
+```
 
-   ```
-   yarn
-   ```
+### Mutating Database Schema
 
-3. Start developing and watch for code changes:
+Once you have your modified `schema.prisma` ready, follow these instructions to create a [Deploy Request](https://docs.planetscale.com/concepts/branching#deploying-branches) into our prod branch.
 
-   ```
-   yarn dev
-   ```
+1. Create your branch:
 
-4. Add project specific data to `src/lib/constants`
+```bash
+pscale branch create basehub-prisma <branch-name>
+```
 
----
+2. Run local databases:
 
-If you find you need to make extra config to make this work more seamlessly, feel free to submit a PR suggesting your changes. Our focus is to get you up and running with the least steps and burden as possible.
+In one terminal instance:
 
----
+```bash
+yarn db-shadow
+```
 
-![cover image](https://github.com/basementstudio/next-typescript/raw/master/public/og.png 'We Make Cool Sh*t That Performs')
+In another terminal instance:
+
+```bash
+yarn db-branch <branch-name>
+```
+
+4. Run prisma migrations:
+
+```bash
+npx prisma migrate dev
+```
+
+5. Create Deploy Request:
+
+```bash
+pscale deploy-request create basehub-prisma <branch-name>
+```
+
+That's all. You just created a Deploy Request. Take a look at it in the [PlanetScale dashboard](https://app.planetscale.com/basementstudio/basehub-prisma/deploy-requests). Let's get that thing reviewed and deployed!

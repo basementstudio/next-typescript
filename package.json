@@ -17,7 +17,10 @@
     "lint:fix": "yarn lint --fix",
     "lint:css:fix": "yarn lint:css --fix",
     "lint-all:fix": "yarn lint:fix && yarn lint:css:fix",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "postinstall": "prisma generate",
+    "db-shadow": "pscale connect basehub-prisma shadow --port 3310",
+    "db-branch": "pscale connect basehub-prisma --port 3309"
   },
   "dependencies": {
     "@prisma/client": "^3.1.1",

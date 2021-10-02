@@ -10,10 +10,51 @@ generator client {
   previewFeatures = ["referentialIntegrity"]
 }
 
-model Post {
+model User {
+  id        Int          @id @default(autoincrement())
+  createdAt DateTime     @default(now())
+  updatedAt DateTime     @updatedAt
+  name      String       @db.VarChar(255)
+  email     String       @unique
+  password  String
+  avatarUrl String?
+  teams     Membership[]
+}
+
+model Team {
+  id        Int          @id @default(autoincrement())
+  createdAt DateTime     @default(now())
+  updatedAt DateTime     @updatedAt
+  name      String       @db.VarChar(255)
+  slug      String       @unique
+  members   Membership[]
+  avatarUrl String?
+  repos     Repo[]
+}
+
+enum MembershipRole {
+  MEMBER
+  OWNER
+}
+
+model Membership {
+  teamId   Int
+  userId   Int
+  accepted Boolean        @default(false)
+  role     MembershipRole
+  team     Team           @relation(fields: [teamId], references: [id])
+  user     User           @relation(fields: [userId], references: [id])
+
+  @@id([userId, teamId])
+}
+
+model Repo {
   id        Int      @id @default(autoincrement())
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
-  title     String   @db.VarChar(255)
-  content   String
+  name      String   @db.VarChar(255)
+  slug      String   @unique
+  owner     Team     @relation(fields: [ownerId], references: [id])
+  ownerId   Int
+  dbUrl     String
 }
