@@ -1,5 +1,5 @@
-import * as React from 'react'
 import * as ReactDeviceDetect from 'react-device-detect'
+import * as React from 'react'
 
 type DD = {
   isMobile?: boolean

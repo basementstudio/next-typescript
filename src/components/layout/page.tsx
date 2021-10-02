@@ -1,6 +1,5 @@
-import Head, { HeadProps } from '~/components/common/head'
-
-import { Container, ContainerProps } from './container'
+import Head, { HeadProps } from 'components/common/head'
+import Container, { ContainerProps } from './container'
 
 type Props = {
   children?: React.ReactNode
@@ -12,7 +11,7 @@ type Props = {
   // footerProps?: FooterProps
 }
 
-export const PageLayout = ({ children, contain, headProps }: Props) => {
+const PageLayout = ({ children, contain, headProps }: Props) => {
   return (
     <>
       <Head {...headProps} />
@@ -26,3 +25,5 @@ export const PageLayout = ({ children, contain, headProps }: Props) => {
     </>
   )
 }
+
+export default PageLayout

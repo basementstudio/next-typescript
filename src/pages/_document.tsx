@@ -1,12 +1,11 @@
+import { GAScripts } from 'lib/ga'
 import Document, {
-  DocumentContext,
-  Head,
   Html,
+  Head,
   Main,
-  NextScript
+  NextScript,
+  DocumentContext
 } from 'next/document'
-
-import { GAScripts } from '~/lib/ga'
 
 class MyDocument extends Document {
   static async getInitialProps(ctx: DocumentContext) {

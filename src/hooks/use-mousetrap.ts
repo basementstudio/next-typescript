@@ -1,5 +1,5 @@
-import mousetrap from 'mousetrap'
 import * as React from 'react'
+import mousetrap from 'mousetrap'
 
 type MousetrapParameters = Parameters<typeof mousetrap.bind>
 

@@ -1,20 +1,26 @@
+import type * as Polymorphic from '@radix-ui/react-polymorphic'
 import clsx from 'clsx'
 import * as React from 'react'
 
-export const Container = React.forwardRef<
-  HTMLDivElement,
-  JSX.IntrinsicElements['div']
->(({ className, ...props }, ref) => {
-  return (
-    <div
-      {...props}
-      className={clsx(
-        // TODO: Put some padding, max width, and margin-x auto in here!
-        className
-      )}
-      ref={ref}
-    />
-  )
-})
+type Props = {
+  children?: React.ReactNode
+}
 
-export type ContainerProps = React.ComponentPropsWithRef<typeof Container>
+const Container = React.forwardRef(
+  ({ as: Comp = 'div', className, ...props }, ref) => {
+    return (
+      <Comp
+        {...props}
+        className={clsx(
+          // TODO: Put some padding, max width, and margin-x auto in here!
+          className
+        )}
+        ref={ref}
+      />
+    )
+  }
+) as Polymorphic.ForwardRefComponent<'div', Props>
+
+export type ContainerProps = React.ComponentProps<typeof Container>
+
+export default Container

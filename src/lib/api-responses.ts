@@ -1,5 +1,4 @@
 import { NextApiResponse } from 'next'
-
 import { formatError } from './utils'
 
 // Some helpers for usual http responses
