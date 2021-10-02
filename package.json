@@ -20,6 +20,7 @@
     "prepare": "husky install"
   },
   "dependencies": {
+    "@prisma/client": "^3.1.1",
     "clsx": "^1.1.1",
     "mousetrap": "^1.6.5",
     "next": "^11.1.2",
@@ -38,6 +39,7 @@
     "@types/react-dom": "^17.0.6",
     "@typescript-eslint/eslint-plugin": "^4.31.1",
     "@typescript-eslint/parser": "^4.31.2",
+    "autoprefixer": "^10.3.6",
     "babel-plugin-optimize-clsx": "^2.6.2",
     "cross-env": "^7.0.3",
     "eslint": "^7.32.0",
@@ -55,10 +57,13 @@
     "next-compose-plugins": "^2.2.1",
     "next-sitemap": "^1.6.168",
     "next-transpile-modules": "^8.0.0",
+    "postcss": "^8.3.8",
     "prettier": "^2.4.1",
+    "prisma": "^3.1.1",
     "sass": "^1.38.0",
     "stylelint": "^13.13.1",
     "stylelint-config-standard": "^22.0.0",
+    "tailwindcss": "^2.2.16",
     "typescript": "^4.4.3"
   },
   "engines": {

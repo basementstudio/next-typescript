@@ -1,0 +1,19 @@
+datasource db {
+  provider             = "mysql"
+  url                  = env("DATABASE_URL")
+  shadowDatabaseUrl    = env("SHADOW_DATABASE_URL")
+  referentialIntegrity = "prisma"
+}
+
+generator client {
+  provider        = "prisma-client-js"
+  previewFeatures = ["referentialIntegrity"]
+}
+
+model Post {
+  id        Int      @id @default(autoincrement())
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  title     String   @db.VarChar(255)
+  content   String
+}
