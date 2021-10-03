@@ -14,7 +14,7 @@ type Meta = {
 
 export type HeadProps = Meta & { rawNextSeoProps?: NextSeoProps }
 
-const Head = (props: HeadProps) => {
+export const Head = (props: HeadProps) => {
   const router = useRouter()
   const isDark = useMedia('(prefers-color-scheme: dark)')
 
@@ -48,5 +48,3 @@ const Head = (props: HeadProps) => {
     </>
   )
 }
-
-export default Head

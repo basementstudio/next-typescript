@@ -3,7 +3,7 @@ import { createPortal } from 'react-dom'
 
 type Props = { id?: string; onMount?: () => void }
 
-const Portal: React.FC<Props> = ({
+export const Portal: React.FC<Props> = ({
   children,
   id = 'my-awesome-portal',
   onMount
@@ -31,5 +31,3 @@ const Portal: React.FC<Props> = ({
 
   return isMounted && ref.current ? createPortal(children, ref.current) : null
 }
-
-export default Portal
