@@ -1,5 +1,3 @@
-import GameOfLife from './game-of-life'
-
 import s from './welcome.module.css'
 
 const Welcome = () => (
@@ -62,7 +60,6 @@ const Welcome = () => (
         </p>
       </div>
     </div>
-    <GameOfLife />
   </div>
 )
 
