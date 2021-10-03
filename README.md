@@ -34,7 +34,10 @@ The objective of this boilerplate is to set up everything the developer will nee
    yarn dev
    ```
 
-4. Add project specific data to `src/lib/constants`
+## Important
+
+- [ ] Add project specific data to `./src/lib/constants`
+- [ ] Add project specific data to `./next-sitemap.js`
 
 ---
 
