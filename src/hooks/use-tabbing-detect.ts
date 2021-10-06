@@ -1,33 +1,44 @@
-import { useEffect } from 'react'
+import * as React from 'react'
 
-// https://medium.com/hackernoon/removing-that-ugly-focus-ring-and-keeping-it-too-6c8727fefcd2
+export const useTabbingDetect = (bodyClassName = 'user-is-tabbing') => {
+  const [isTabbing, setIsTabbing] = React.useState(false)
 
-const tabbingClass = 'user-is-tabbing'
+  React.useEffect(() => {
+    if (isTabbing) return
 
-function handleFirstTab(event: KeyboardEvent) {
-  if (event.code === `Tab`) {
-    document.body.classList.add(tabbingClass)
-    window.removeEventListener('keydown', handleFirstTab)
-    window.addEventListener('mousedown', handleClick)
-  }
-}
-
-function handleClick() {
-  document.body.classList.remove(tabbingClass)
-  window.removeEventListener('mousedown', handleClick)
-  window.addEventListener('keydown', handleFirstTab)
-}
-
-export const useTabbingDetect = () => {
-  useEffect(() => {
-    window.addEventListener('keydown', handleFirstTab)
-    window.addEventListener('mousedown', handleClick)
-
-    return () => {
-      window.removeEventListener('keydown', handleClick)
-      window.removeEventListener('mousedown', handleFirstTab as EventListener)
+    function handleKeyDown(event: KeyboardEvent) {
+      if (event.code === `Tab`) {
+        setIsTabbing(true)
+      }
     }
-  }, [])
 
-  return null
+    window.addEventListener('keydown', handleKeyDown)
+    return () => {
+      window.removeEventListener('keydown', handleKeyDown)
+    }
+  }, [isTabbing])
+
+  React.useEffect(() => {
+    if (!isTabbing) return
+
+    function handleMouseDown() {
+      setIsTabbing(false)
+    }
+
+    window.addEventListener('mousedown', handleMouseDown)
+    return () => {
+      window.removeEventListener('mousedown', handleMouseDown)
+    }
+  }, [isTabbing])
+
+  React.useEffect(() => {
+    if (!bodyClassName) return
+    if (isTabbing) {
+      document.body.classList.add(bodyClassName)
+    } else {
+      document.body.classList.remove(bodyClassName)
+    }
+  }, [isTabbing, bodyClassName])
+
+  return { isTabbing }
 }
