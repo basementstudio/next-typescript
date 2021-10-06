@@ -25,7 +25,7 @@
     "next": "^11.1.2",
     "next-seo": "^4.26.0",
     "react": "^17.0.2",
-    "react-device-detect": "^1.17.0",
+    "react-device-detect": "^2.0.1",
     "react-dom": "^17.0.2"
   },
   "devDependencies": {
@@ -36,18 +36,21 @@
     "@types/react": "^17.0.22",
     "@types/react-dom": "^17.0.6",
     "@typescript-eslint/eslint-plugin": "^4.31.1",
-    "@typescript-eslint/parser": "^4.31.2",
+    "@typescript-eslint/parser": "^4.33.0",
     "babel-plugin-optimize-clsx": "^2.6.2",
     "cross-env": "^7.0.3",
     "eslint": "^7.32.0",
     "eslint-config-next": "^11.1.0",
     "eslint-config-prettier": "^8.3.0",
+    "eslint-import-resolver-typescript": "^2.5.0",
+    "eslint-plugin-import": "^2.24.2",
     "eslint-plugin-jsx-a11y": "^6.4.1",
     "eslint-plugin-prettier": "^4.0.0",
     "eslint-plugin-react": "^7.26.0",
     "eslint-plugin-react-hooks": "^4.2.0",
+    "eslint-plugin-simple-import-sort": "^7.0.0",
     "husky": "^7.0.1",
-    "lint-staged": "^11.1.2",
+    "lint-staged": "^11.2.0",
     "next-compose-plugins": "^2.2.1",
     "next-sitemap": "^1.6.168",
     "next-transpile-modules": "^8.0.0",
@@ -80,10 +83,14 @@
     "plugins": [
       "react",
       "react-hooks",
+      "simple-import-sort",
       "@typescript-eslint"
     ],
+    "ignorePatterns": [],
     "extends": [
       "eslint:recommended",
+      "plugin:import/recommended",
+      "plugin:import/typescript",
       "plugin:react/recommended",
       "plugin:@typescript-eslint/recommended",
       "prettier",
@@ -106,6 +113,8 @@
       "@typescript-eslint/no-var-requires": 0,
       "@typescript-eslint/no-use-before-define": 0,
       "@typescript-eslint/ban-ts-comment": 0,
+      "simple-import-sort/imports": "error",
+      "simple-import-sort/exports": "error",
       "react-hooks/exhaustive-deps": "warn",
       "react/no-unescaped-entities": 0,
       "curly": [
@@ -139,6 +148,18 @@
       "@typescript-eslint/explicit-module-boundary-types": "off"
     },
     "settings": {
+      "import/parsers": {
+        "@typescript-eslint/parser": [
+          ".ts",
+          ".tsx"
+        ]
+      },
+      "import/resolver": {
+        "typescript": {
+          "alwaysTryTypes": true,
+          "project": "."
+        }
+      },
       "react": {
         "version": "detect"
       }

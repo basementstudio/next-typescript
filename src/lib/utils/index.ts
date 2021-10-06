@@ -1,4 +1,4 @@
-import { isClient } from 'lib/constants'
+import { isClient } from '~/lib/constants'
 
 export const formatError = (e: unknown): { message: string } => {
   try {
