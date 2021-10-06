@@ -6,33 +6,26 @@ const tabbingClass = 'user-is-tabbing'
 
 function handleFirstTab(event: KeyboardEvent) {
   if (event.code === `Tab`) {
-    reset()
     document.body.classList.add(tabbingClass)
     window.removeEventListener('keydown', handleFirstTab)
+    window.addEventListener('mousedown', handleClick)
   }
 }
 
 function handleClick() {
-  reset()
-  window.addEventListener('keydown', handleFirstTab)
-}
-
-function reset() {
   document.body.classList.remove(tabbingClass)
-  window.removeEventListener('keydown', handleClick)
-  window.removeEventListener('mousedown', handleFirstTab as EventListener)
+  window.removeEventListener('mousedown', handleClick)
+  window.addEventListener('keydown', handleFirstTab)
 }
 
 export const useTabbingDetect = () => {
   useEffect(() => {
-    if (typeof window === 'undefined') return
-
     window.addEventListener('keydown', handleFirstTab)
     window.addEventListener('mousedown', handleClick)
 
     return () => {
-      window.removeEventListener('keydown', handleFirstTab)
-      window.removeEventListener('mousedown', handleClick)
+      window.removeEventListener('keydown', handleClick)
+      window.removeEventListener('mousedown', handleFirstTab as EventListener)
     }
   }, [])
 
