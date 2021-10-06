@@ -32,7 +32,7 @@ export const useTabbingDetect = () => {
 
     return () => {
       window.removeEventListener('keydown', handleFirstTab)
-      window.addEventListener('click', handleClick)
+      window.removeEventListener('mousedown', handleClick)
     }
   }, [])
 
