@@ -4,9 +4,9 @@ import { AppProps } from 'next/app'
 
 import { AppContextProvider } from '~/context/app'
 import { useMousetrap } from '~/hooks/use-mousetrap'
+import { useTabbingDetect } from '~/hooks/use-tabbing-detect'
 import { isDev } from '~/lib/constants'
 import { useAppGA } from '~/lib/ga'
-import { useTabbingDetect } from '~/hooks/use-tabbing-detect'
 
 const App = ({ Component, pageProps }: AppProps) => {
   if (isDev) {
