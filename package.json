@@ -6,18 +6,14 @@
   "author": "basement.studio",
   "private": true,
   "scripts": {
+    "prepare": "husky install",
     "dev": "next",
     "build": "next build",
     "build:analyze": "cross-env ANALYZE=true npm run build",
-    "start": "next start",
-    "type-check": "tsc --pretty --noEmit",
     "postbuild": "next-sitemap",
-    "lint": "eslint . --ext ts --ext tsx --ext js",
-    "lint:css": "stylelint '**/*.{css,scss}'",
-    "lint:fix": "yarn lint --fix",
-    "lint:css:fix": "yarn lint:css --fix",
-    "lint-all:fix": "yarn lint:fix && yarn lint:css:fix",
-    "prepare": "husky install"
+    "start": "next start",
+    "lint": "eslint . --ext ts --ext tsx --ext js && stylelint '**/*.{css,scss}'",
+    "tsc": "tsc --pretty --noEmit"
   },
   "dependencies": {
     "clsx": "^1.1.1",
@@ -220,7 +216,7 @@
   },
   "lint-staged": {
     "*.@(ts|tsx|css|scss)": [
-      "yarn lint-all:fix"
+      "yarn lint --fix"
     ]
   }
 }
