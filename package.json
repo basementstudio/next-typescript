@@ -48,7 +48,7 @@
     "husky": "^7.0.1",
     "lint-staged": "^11.2.3",
     "next-compose-plugins": "^2.2.1",
-    "next-sitemap": "^1.6.184",
+    "next-sitemap": "^1.6.189",
     "next-transpile-modules": "^8.0.0",
     "prettier": "^2.4.1",
     "sass": "^1.38.0",
