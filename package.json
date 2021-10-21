@@ -45,7 +45,7 @@
     "eslint-plugin-react": "^7.26.0",
     "eslint-plugin-react-hooks": "^4.2.0",
     "eslint-plugin-simple-import-sort": "^7.0.0",
-    "husky": "^7.0.1",
+    "husky": "^7.0.4",
     "lint-staged": "^11.2.3",
     "next-compose-plugins": "^2.2.1",
     "next-sitemap": "^1.6.184",
