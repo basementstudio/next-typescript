@@ -1,16 +1,13 @@
 import { isClient } from '~/lib/constants'
 
-export const formatError = (e: unknown): { message: string } => {
+export const formatError = (
+  error: unknown
+): { message: string; name?: string } => {
   try {
-    switch (typeof e) {
-      case 'string':
-        return { message: e }
-      default:
-      case 'object': {
-        const anyError = e as any
-        return formatError(anyError.message || anyError.error)
-      }
+    if (error instanceof Error) {
+      return { message: error.message, name: error.name }
     }
+    return { message: String(error) }
   } catch (error) {
     return { message: 'An unknown error ocurred.' }
   }
