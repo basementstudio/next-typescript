@@ -53,8 +53,8 @@
     "next-transpile-modules": "^8.0.0",
     "prettier": "^2.4.1",
     "sass": "^1.43.4",
-    "stylelint": "^13.13.1",
-    "stylelint-config-standard": "^22.0.0",
+    "stylelint": "^14.0.1",
+    "stylelint-config-standard": "^23.0.0",
     "typescript": "^4.4.4"
   },
   "engines": {
