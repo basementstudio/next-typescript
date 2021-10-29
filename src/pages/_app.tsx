@@ -5,8 +5,14 @@ import * as React from 'react'
 
 import { AppContextProvider } from '~/context/app'
 import { useMousetrap } from '~/hooks/use-mousetrap'
-import { isDev } from '~/lib/constants'
+import { basementLog, isDev, isProd } from '~/lib/constants'
 import { useAppGA } from '~/lib/ga'
+
+// TODO delete this basement log if not a basement project.
+if (isProd) {
+  // eslint-disable-next-line no-console
+  console.log(basementLog)
+}
 
 const App = ({ Component, pageProps }: AppProps) => {
   useAppGA()
