@@ -1,9 +1,9 @@
 import 'css/global.css'
 
-import Inspect from 'inspx'
 import { AppProps } from 'next/app'
 import * as React from 'react'
 
+import Inspect from '~/components/common/inspect'
 import { AppContextProvider } from '~/context/app'
 import { useMousetrap } from '~/hooks/use-mousetrap'
 import { isDev } from '~/lib/constants'
