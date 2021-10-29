@@ -25,7 +25,14 @@ export const Head = (props: HeadProps) => {
       description: props.description ?? defaultMeta.description,
       canonical: `${siteOrigin}${router.pathname}`,
       openGraph: {
-        images: [{ url: props.ogImage ?? defaultMeta.ogImage }]
+        images: [
+          {
+            url: props.ogImage ?? defaultMeta.ogImage,
+            alt: props.title ?? defaultMeta.title,
+            width: 1200,
+            height: 630
+          }
+        ]
       },
       twitter: {
         cardType: 'summary_large_image',
