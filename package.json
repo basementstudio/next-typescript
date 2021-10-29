@@ -47,7 +47,7 @@
     "eslint-plugin-simple-import-sort": "^7.0.0",
     "husky": "^7.0.4",
     "inspx": "^0.0.1-alpha.6",
-    "lint-staged": "^11.2.3",
+    "lint-staged": "^11.2.6",
     "next-compose-plugins": "^2.2.1",
     "next-sitemap": "^1.6.192",
     "next-transpile-modules": "^8.0.0",
