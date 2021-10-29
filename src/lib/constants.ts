@@ -6,12 +6,14 @@ export const isServer = !isClient
 
 export const siteURL = new URL(
   process.env.NEXT_PUBLIC_SITE_URL ??
-    (isDev ? 'http://localhost:3000' : 'https://basement.studio') // TODO: use your actual production url as default
+    (isDev
+      ? 'http://localhost:3000'
+      : 'https://next-typescript.basement.studio/') // TODO: use your actual production url as default
 )
 export const siteOrigin = siteURL.origin
 
 // this is not used anywhere — just for our (basement.) projects.
-// you can delete it 🙂
+// you can delete it if not needed.
 export const basementLog = `
 
    ██╗

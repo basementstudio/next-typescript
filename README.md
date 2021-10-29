@@ -36,8 +36,9 @@ The objective of this boilerplate is to set up everything the developer will nee
 
 ## Important Things to Do
 
-- Add project specific data to `./src/lib/constants`
-- Add project specific data to `./next-sitemap.js`
+- Add project specific data to `./src/lib/constants`.
+- Add project specific data to `./next-sitemap.js`.
+- Delete `console.log(basementLog)` if not wanted — it's under `_app.tsx`.
 
 ---
 
