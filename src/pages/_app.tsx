@@ -3,6 +3,7 @@ import 'css/global.css'
 import { AppProps } from 'next/app'
 import * as React from 'react'
 
+import Inspect from '~/components/common/inspect'
 import { AppContextProvider } from '~/context/app'
 import { useMousetrap } from '~/hooks/use-mousetrap'
 import { basementLog, isDev, isProd } from '~/lib/constants'
@@ -46,9 +47,11 @@ const App = ({ Component, pageProps }: AppProps) => {
   }, [])
 
   return (
-    <AppContextProvider>
-      <Component {...pageProps} />
-    </AppContextProvider>
+    <Inspect>
+      <AppContextProvider>
+        <Component {...pageProps} />
+      </AppContextProvider>
+    </Inspect>
   )
 }
 
