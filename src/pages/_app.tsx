@@ -1,5 +1,6 @@
 import 'css/global.css'
 
+import Inspect from 'inspx'
 import { AppProps } from 'next/app'
 import * as React from 'react'
 
@@ -40,9 +41,11 @@ const App = ({ Component, pageProps }: AppProps) => {
   }, [])
 
   return (
-    <AppContextProvider>
-      <Component {...pageProps} />
-    </AppContextProvider>
+    <Inspect>
+      <AppContextProvider>
+        <Component {...pageProps} />
+      </AppContextProvider>
+    </Inspect>
   )
 }
 
