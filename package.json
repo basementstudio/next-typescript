@@ -29,7 +29,7 @@
     "@types/css-font-loading-module": "^0.0.6",
     "@types/mousetrap": "^1.6.8",
     "@types/node": "^16.11.1",
-    "@types/react": "^17.0.30",
+    "@types/react": "^17.0.33",
     "@types/react-dom": "^17.0.10",
     "@typescript-eslint/eslint-plugin": "^4.33.0",
     "@typescript-eslint/parser": "^4.33.0",
@@ -53,8 +53,11 @@
     "next-transpile-modules": "^8.0.0",
     "prettier": "^2.4.1",
     "sass": "^1.43.4",
-    "stylelint": "^13.13.1",
-    "stylelint-config-standard": "^22.0.0",
+    "stylelint": "^14.0.1",
+    "stylelint-config-prettier": "^9.0.3",
+    "stylelint-config-standard": "^23.0.0",
+    "stylelint-config-standard-scss": "^2.0.0",
+    "stylelint-prettier": "^1.2.0",
     "typescript": "^4.4.4"
   },
   "engines": {
@@ -167,10 +170,15 @@
       "**/*.{ts,tsx,js,jsx}"
     ],
     "extends": [
-      "stylelint-config-standard"
+      "stylelint-config-standard",
+      "stylelint-config-standard-scss",
+      "stylelint-prettier/recommended"
+    ],
+    "plugins": [
+      "stylelint-prettier"
     ],
     "rules": {
-      "at-rule-no-unknown": [
+      "scss/at-rule-no-unknown": [
         true,
         {
           "ignoreAtRules": [
