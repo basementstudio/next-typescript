@@ -1,28 +1,20 @@
 @import './reset.css';
 @import './inter.css';
+@tailwind components;
 
 :root {
-  --font-system:
-    -apple-system,
-    blinkmacsystemfont,
-    segoe ui,
-    roboto,
-    oxygen,
-    ubuntu,
-    cantarell,
-    fira sans,
-    droid sans,
-    helvetica neue,
-    sans-serif;
+  --font-system: -apple-system, blinkmacsystemfont, segoe ui, roboto, oxygen,
+    ubuntu, cantarell, fira sans, droid sans, helvetica neue, sans-serif;
   --font-body: 'Inter', var(--font-system), sans-serif;
   --inspect-color: #f00;
 }
 
 html {
   line-height: 1.5;
-  -webkit-text-size-adjust: 100%;
   box-sizing: border-box;
   text-rendering: geometricPrecision;
+  /* stylelint-disable-next-line property-no-vendor-prefix */
+  -webkit-text-size-adjust: 100%;
   -webkit-font-smoothing: antialiased;
   -webkit-font-smoothing: subpixel-antialiased;
   -moz-font-smoothing: antialiased;
