@@ -6,8 +6,8 @@ The objective of this boilerplate is to set up everything the developer will nee
 
 ## Featured Aspects of the Stack
 
-- Typescript
-- NextJS
+- [TypeScript](https://www.typescriptlang.org/)
+- [Next.js](https://nextjs.org/)
 
 ## Things to Note
 
