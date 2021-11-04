@@ -1,7 +1,7 @@
 {
   "name": "next-typescript",
   "version": "1.0.0",
-  "description": "A minimalist's boilerplate — Next.js with TypeScript.",
+  "description": "A minimalist boilerplate — Next.js with TypeScript.",
   "repository": "https://github.com/basementstudio/next-typescript",
   "author": "basement.studio",
   "private": true,
@@ -25,7 +25,7 @@
     "react-dom": "^17.0.2"
   },
   "devDependencies": {
-    "@next/bundle-analyzer": "^11.1.2",
+    "@next/bundle-analyzer": "^12.0.2",
     "@types/css-font-loading-module": "^0.0.6",
     "@types/mousetrap": "^1.6.8",
     "@types/node": "^16.11.1",
