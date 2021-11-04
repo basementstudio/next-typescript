@@ -39,7 +39,7 @@ The objective of this boilerplate is to set up everything the developer will nee
 - [ ] Add project specific data to `./src/lib/constants`.
 - [ ] Add project specific data to `./next-sitemap.js`.
 - [ ] Delete `console.log(basementLog)` if not wanted — it's under `_app.tsx`.
-- [ ] Replace the contents of this file (`README.md`) with the contents of the `README-your-project.md` file — make sure to adapt it to your project's specific needs. Finally, delete the old `README-your-project.md` file.
+- [ ] Replace the contents of this file (`README.md`) with the contents of the `README.example.md` file — make sure to adapt it to your project's specific needs. Finally, delete the old `README.example.md` file.
 
 ---
 
