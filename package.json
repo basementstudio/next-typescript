@@ -1,7 +1,7 @@
 {
   "name": "next-typescript",
   "version": "1.0.0",
-  "description": "A minimalist's boilerplate — Next.js with TypeScript.",
+  "description": "A minimalist boilerplate — Next.js with TypeScript.",
   "repository": "https://github.com/basementstudio/next-typescript",
   "author": "basement.studio",
   "private": true,
