@@ -38,7 +38,7 @@
     "babel-plugin-optimize-clsx": "^2.6.2",
     "cross-env": "^7.0.3",
     "eslint": "^7.32.0",
-    "eslint-config-next": "^12.0.2",
+    "eslint-config-next": "^12.0.4",
     "eslint-config-prettier": "^8.3.0",
     "eslint-import-resolver-typescript": "^2.5.0",
     "eslint-plugin-import": "^2.25.2",
