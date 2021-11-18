@@ -1,6 +1,5 @@
 @import './reset.css';
 @import './inter.css';
-@tailwind components;
 
 :root {
   --font-system: -apple-system, blinkmacsystemfont, segoe ui, roboto, oxygen,
