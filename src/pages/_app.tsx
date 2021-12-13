@@ -46,10 +46,16 @@ const App = ({ Component, pageProps }: AppProps) => {
     }
   }, [])
 
+  const Layout =
+    ((Component as any).Layout as React.FC | undefined) ||
+    (({ children }) => <>{children}</>)
+
   return (
     <Inspect>
       <AppContextProvider>
-        <Component {...pageProps} />
+        <Layout>
+          <Component {...pageProps} />
+        </Layout>
       </AppContextProvider>
     </Inspect>
   )
