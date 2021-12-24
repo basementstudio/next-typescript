@@ -47,11 +47,6 @@ export const MuxVideo = React.forwardRef<HTMLVideoElement, MuxVideoProps>(
       <video
         ref={mergeRefs([videoRef, ref])}
         className={className}
-        onDurationChange={(e) => {
-          if (e.currentTarget.readyState >= 2) {
-            videoRef?.current?.play()
-          }
-        }}
         {...rest}
       />
     )
