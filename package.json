@@ -222,7 +222,12 @@
       "declaration-block-trailing-semicolon": null,
       "no-descending-specificity": null,
       "number-leading-zero": null,
-      "length-zero-no-unit": null
+      "length-zero-no-unit": null,
+      "alpha-value-notation": null,
+      "selector-id-pattern": null,
+      "selector-class-pattern": null,
+      "property-no-vendor-prefix": null,
+      "value-no-vendor-prefix": null
     }
   },
   "lint-staged": {

@@ -1,4 +1,4 @@
-import 'css/global.css'
+import '~/css/global.css'
 
 import { AppProps } from 'next/app'
 import * as React from 'react'
