@@ -5,6 +5,7 @@
     "source.fixAll.eslint": true,
     "source.fixAll.stylelint": true
   },
+  "stylelint.validate": ["css", "scss"],
   "css.validate": false,
   "less.validate": false,
   "scss.validate": false,
