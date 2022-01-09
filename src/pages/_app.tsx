@@ -1,5 +1,6 @@
 import '~/css/global.css'
 
+import { NextComponentType, NextPageContext } from 'next'
 import { AppProps } from 'next/app'
 import * as React from 'react'
 
@@ -15,7 +16,17 @@ if (isProd) {
   console.log(basementLog)
 }
 
-const App = ({ Component, pageProps }: AppProps) => {
+export type Page<P = Record<string, unknown>> = NextComponentType<
+  NextPageContext,
+  Record<string, unknown>,
+  P
+> & { getLayout?: GetLayoutFn<P> }
+
+export type GetLayoutFn<P = Record<string, unknown>> = (
+  props: AppProps<P>
+) => React.ReactNode
+
+const App = ({ Component, pageProps, ...rest }: AppProps) => {
   useAppGA()
 
   if (isDev) {
@@ -46,16 +57,14 @@ const App = ({ Component, pageProps }: AppProps) => {
     }
   }, [])
 
-  const Layout =
-    ((Component as any).Layout as React.FC | undefined) ||
-    (({ children }) => <>{children}</>)
+  const getLayout: GetLayoutFn =
+    (Component as any).getLayout ||
+    (({ Component, pageProps }) => <Component {...pageProps} />)
 
   return (
     <Inspect>
       <AppContextProvider>
-        <Layout>
-          <Component {...pageProps} />
-        </Layout>
+        {getLayout({ Component, pageProps, ...rest })}
       </AppContextProvider>
     </Inspect>
   )
