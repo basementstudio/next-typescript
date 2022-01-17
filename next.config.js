@@ -4,5 +4,5 @@ const withTM = require('next-transpile-modules')
 
 module.exports = withPlugins(
   [withBundleAnalyzer({ enabled: process.env.ANALYZE === 'true' }), withTM([])],
-  { reactStrictMode: true }
+  { reactStrictMode: false }
 )
