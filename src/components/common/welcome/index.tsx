@@ -47,7 +47,7 @@ const Welcome = () => (
       <div className={s.box}>
         <p>
           🔎 Try pressing <code>ctrl+i</code> or <code>alt+i</code> to inspect
-          boxes. Super useful to detect overflows.
+          boxes. Super useful for detecting overflows.
         </p>
       </div>
 
