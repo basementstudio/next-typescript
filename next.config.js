@@ -7,7 +7,10 @@ const withTM = require('next-transpile-modules')
  */
 const config = {
   reactStrictMode: false,
-  swcMinify: true
+  swcMinify: true,
+  images: {
+    formats: ['image/avif', 'image/webp']
+  }
 }
 
 module.exports = withPlugins(
