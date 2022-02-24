@@ -56,7 +56,7 @@ export const Meta = (props: MetaProps) => {
         <meta
           name="viewport"
           key="viewport"
-          content="width=device-width, height=device-height, initial-scale=1, user-scalable=no, shrink-to-fit=no, viewport-fit=cover"
+          content="width=device-width, height=device-height, initial-scale=1, shrink-to-fit=no"
         />
         <meta name="theme-color" content={props.themeColor ?? '#000000'} />
         <link rel="icon" href={isDark ? '/favicon-dark.svg' : '/favicon.svg'} />
