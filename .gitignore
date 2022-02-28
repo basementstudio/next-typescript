@@ -16,6 +16,9 @@
 /build
 
 # misc
+*/robots.txt
+*/sitemap.xml
+*/sitemap-0.xml
 .DS_Store
 *.pem
 
