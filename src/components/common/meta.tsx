@@ -59,8 +59,14 @@ export const Meta = (props: MetaProps) => {
           content="width=device-width, height=device-height, initial-scale=1, shrink-to-fit=no"
         />
         <meta name="theme-color" content={props.themeColor ?? '#000000'} />
-        <link rel="icon" href={isDark ? '/favicon-dark.svg' : '/favicon.svg'} />
-        <link rel="mask-icon" href="/favicon.svg" color="#000" />
+        <link rel="icon" href="/favicon.ico" sizes="any" />
+        <link
+          rel="icon"
+          href={isDark ? '/favicon-dark.svg' : '/favicon.svg'}
+          type="image/svg+xml"
+        />
+        <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+        <link rel="manifest" href="/manifest.webmanifest" />
         {props.preload?.map(({ href, as }) => (
           <link key={href} rel="preload" href={href} as={as} />
         ))}
