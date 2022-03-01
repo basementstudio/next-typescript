@@ -6,6 +6,7 @@ import Document, {
   NextScript
 } from 'next/document'
 
+import { gaTrackingId } from '~/lib/constants'
 import { GAScripts } from '~/lib/ga'
 
 class MyDocument extends Document {
@@ -21,7 +22,7 @@ class MyDocument extends Document {
         <body>
           <Main />
           <NextScript />
-          <GAScripts />
+          {gaTrackingId && <GAScripts />}
         </body>
       </Html>
     )
