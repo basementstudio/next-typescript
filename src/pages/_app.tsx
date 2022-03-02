@@ -7,8 +7,8 @@ import * as React from 'react'
 import Inspect from '~/components/common/inspect'
 import { AppContextProvider } from '~/context/app'
 import { useMousetrap } from '~/hooks/use-mousetrap'
-import { basementLog, isDev, isProd } from '~/lib/constants'
-import { useAppGA } from '~/lib/ga'
+import { basementLog, gaTrackingId, isDev, isProd } from '~/lib/constants'
+import { GAScripts, useAppGA } from '~/lib/ga'
 
 // TODO delete this basement log if not a basement project.
 if (isProd) {
@@ -62,11 +62,14 @@ const App = ({ Component, pageProps, ...rest }: AppProps) => {
     (({ Component, pageProps }) => <Component {...pageProps} />)
 
   return (
-    <Inspect>
-      <AppContextProvider>
-        {getLayout({ Component, pageProps, ...rest })}
-      </AppContextProvider>
-    </Inspect>
+    <>
+      {gaTrackingId && <GAScripts />}
+      <Inspect>
+        <AppContextProvider>
+          {getLayout({ Component, pageProps, ...rest })}
+        </AppContextProvider>
+      </Inspect>
+    </>
   )
 }
 
