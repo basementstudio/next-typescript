@@ -51,7 +51,7 @@
     "inspx": "^0.0.1-alpha.6",
     "lint-staged": "^11.2.6",
     "next-compose-plugins": "^2.2.1",
-    "next-sitemap": "2.5.2",
+    "next-sitemap": "2.5.4",
     "next-transpile-modules": "^9.0.0",
     "prettier": "2.5.1",
     "sass": "1.49.9",
