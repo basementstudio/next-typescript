@@ -26,7 +26,7 @@ export const basementLog = `
    From the basement. https://basement.studio
 `
 
-// todo update this data
+// TODO: update this data
 export const defaultMeta = {
   title: 'next-typescript | basement.studio',
   description: `A minimalist's boilerplate — Next.js with TypeScript.`,
@@ -37,5 +37,5 @@ export const defaultMeta = {
   }
 }
 
-// todo update this data
-export const gaTrackingId = '<your-tracking-id>'
+// TODO: add variable (NEXT_PUBLIC_GA_TRACKING_ID) to env if necessary
+export const gaTrackingId = process.env.NEXT_PUBLIC_GA_TRACKING_ID

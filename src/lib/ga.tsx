@@ -1,4 +1,5 @@
 import { useRouter } from 'next/router'
+import Script from 'next/script'
 import * as React from 'react'
 
 import { gaTrackingId } from './constants'
@@ -39,11 +40,13 @@ export const event = ({
 export const GAScripts = () => {
   return (
     <>
-      <script
+      <Script
+        strategy="afterInteractive"
         async
         src={`https://www.googletagmanager.com/gtag/js?id=${gaTrackingId}`}
       />
-      <script
+      <Script
+        strategy="afterInteractive"
         dangerouslySetInnerHTML={{
           __html: `window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());gtag('config', '${gaTrackingId}');`
         }}
