@@ -27,7 +27,7 @@ export type GetLayoutFn<P = Record<string, unknown>> = (
 ) => React.ReactNode
 
 const App = ({ Component, pageProps, ...rest }: AppProps) => {
-  useAppGA()
+  if (gaTrackingId) useAppGA()
 
   if (isDev) {
     useMousetrap([
