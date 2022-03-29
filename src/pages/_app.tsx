@@ -4,14 +4,18 @@ import { NextComponentType, NextPageContext } from 'next'
 import { AppProps } from 'next/app'
 import * as React from 'react'
 
-import Inspect from '~/components/common/inspect'
 import { AppContextProvider } from '~/context/app'
-import { useMousetrap } from '~/hooks/use-mousetrap'
-import { basementLog, gaTrackingId, isDev, isProd } from '~/lib/constants'
+import {
+  basementLog,
+  gaTrackingId,
+  isClient,
+  isDev,
+  isProd
+} from '~/lib/constants'
 import { GAScripts, useAppGA } from '~/lib/ga'
 
 // TODO delete this basement log if not a basement project.
-if (isProd) {
+if (isProd && isClient) {
   // eslint-disable-next-line no-console
   console.log(basementLog)
 }
@@ -29,14 +33,19 @@ export type GetLayoutFn<P = Record<string, unknown>> = (
 const App = ({ Component, pageProps, ...rest }: AppProps) => {
   if (gaTrackingId) useAppGA()
 
-  if (isDev) {
-    useMousetrap([
-      {
-        keys: ['command+i', 'ctrl+i', 'alt+i'],
-        callback: () => document.body.classList.toggle('inspect')
-      }
-    ])
-  }
+  React.useEffect(() => {
+    if (!isDev) return
+    let mousetrapRef: Mousetrap.MousetrapInstance | undefined = undefined
+    import('mousetrap').then(({ default: mousetrap }) => {
+      mousetrapRef = mousetrap.bind(['command+i', 'ctrl+i', 'alt+i'], () => {
+        document.body.classList.toggle('inspect')
+      })
+    })
+
+    return () => {
+      mousetrapRef?.unbind(['command+i', 'ctrl+i', 'alt+i'])
+    }
+  }, [])
 
   React.useEffect(() => {
     function handleKeyDown(event: KeyboardEvent) {
@@ -64,11 +73,9 @@ const App = ({ Component, pageProps, ...rest }: AppProps) => {
   return (
     <>
       {gaTrackingId && <GAScripts />}
-      <Inspect>
-        <AppContextProvider>
-          {getLayout({ Component, pageProps, ...rest })}
-        </AppContextProvider>
-      </Inspect>
+      <AppContextProvider>
+        {getLayout({ Component, pageProps, ...rest })}
+      </AppContextProvider>
     </>
   )
 }

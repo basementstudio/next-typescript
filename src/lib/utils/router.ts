@@ -1,14 +1,18 @@
-import { NextRouter } from 'next/dist/client/router'
-
 import { siteOrigin } from '~/lib/constants'
 
 export type QueryParams = { [key: string]: string | null }
 
-export const cleanPath = (asPath: string) => {
-  const uri = new URL(asPath, siteOrigin)
+/**
+ * Returns pathname without query params.
+ */
+export const cleanPath = (href: string) => {
+  const uri = new URL(href, siteOrigin)
   return uri.pathname
 }
 
+/**
+ * Checks is link is external or not.
+ */
 export const checkIsExternal = (href: string) => {
   try {
     const url = new URL(href)
@@ -20,12 +24,15 @@ export const checkIsExternal = (href: string) => {
   }
 }
 
+/**
+ * Returns href with query parameters and hash. Handles overrides or deletions appropriately.
+ */
 export const getHrefWithQuery = (
-  asPath: string,
+  href: string,
   newQueryParams?: QueryParams,
   override = true
 ) => {
-  const uri = new URL(asPath, siteOrigin)
+  const uri = new URL(href, siteOrigin)
 
   if (newQueryParams) {
     Object.keys(newQueryParams).forEach((key) => {
@@ -42,21 +49,4 @@ export const getHrefWithQuery = (
   }
 
   return `${uri.pathname}${uri.search}${uri.hash}`
-}
-
-export type TransitionOptions = Parameters<NextRouter['push']>['2']
-
-/**
- * Don't use this inside a useEffect with `router` as a dependency (watch out for infinite loops).
- */
-export const makeQuery = (
-  router: NextRouter,
-  queryParams: QueryParams,
-  opts?: { replace?: boolean } & TransitionOptions
-) => {
-  const url = getHrefWithQuery(router.asPath, queryParams)
-  const replace = opts?.replace
-  delete opts?.replace
-  if (replace) return router.replace(url, url, { scroll: false, ...opts })
-  else return router.push(url, url, { scroll: false, ...opts })
 }

@@ -6,12 +6,16 @@ import { gaTrackingId } from './constants'
 
 declare global {
   interface Window {
-    gtag: any
+    gtag: undefined | ((...args: any[]) => void)
   }
 }
 
 // https://developers.google.com/analytics/devguides/collection/gtagjs/pages
 export const pageview = (url: string) => {
+  if (!window.gtag) {
+    console.warn('window.gtag is not defined')
+    return
+  }
   window.gtag('config', gaTrackingId, {
     page_path: url
   })
@@ -29,6 +33,10 @@ export const event = ({
   label: string
   value: string
 }) => {
+  if (!window.gtag) {
+    console.warn('window.gtag is not defined')
+    return
+  }
   window.gtag('event', action, {
     event_category: category,
     event_label: label,
