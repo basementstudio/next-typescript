@@ -11,7 +11,7 @@
 html {
   line-height: 1.5;
   box-sizing: border-box;
-  text-rendering: geometricPrecision;
+  text-rendering: geometricprecision;
   -webkit-text-size-adjust: 100%;
   -webkit-font-smoothing: antialiased;
   -webkit-font-smoothing: subpixel-antialiased;
