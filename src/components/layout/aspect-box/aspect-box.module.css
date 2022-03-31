@@ -1,3 +1,7 @@
+.aspect-box {
+  position: relative;
+}
+
 @supports (aspect-ratio: var(--raw-ratio)) {
   .aspect-box {
     aspect-ratio: var(--raw-ratio);
