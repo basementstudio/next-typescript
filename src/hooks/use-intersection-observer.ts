@@ -1,6 +1,6 @@
 import * as React from 'react'
 
-type IntersectionObserverOptions = IntersectionObserverInit & {
+export type IntersectionObserverOptions = IntersectionObserverInit & {
   triggerOnce?: boolean
 }
 

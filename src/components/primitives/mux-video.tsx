@@ -7,13 +7,14 @@ import { createObserver } from '~/hooks/use-intersection-observer'
 export type MuxVideoProps = {
   muxSrc: string
   lazy?: boolean
+  lazyObserverOptions?: IntersectionObserverInit
 } & Omit<JSX.IntrinsicElements['video'], 'src'>
 
 const supportsHls = (videoElm: HTMLVideoElement) =>
   videoElm.canPlayType('application/vnd.apple.mpegurl')
 
 export const MuxVideo = React.forwardRef<HTMLVideoElement, MuxVideoProps>(
-  ({ muxSrc, lazy = true, className, ...rest }, ref) => {
+  ({ muxSrc, lazy = true, lazyObserverOptions, className, ...rest }, ref) => {
     const hls = React.useRef<THls | null>(null)
     const videoRef = React.useRef<HTMLVideoElement>(null)
 
@@ -67,15 +68,17 @@ export const MuxVideo = React.forwardRef<HTMLVideoElement, MuxVideoProps>(
       }
 
       if (lazy) {
-        createObserver(videoRef.current, { triggerOnce: true }, () =>
-          loadVideo(video)
+        createObserver(
+          videoRef.current,
+          { ...lazyObserverOptions, triggerOnce: true },
+          () => loadVideo(video)
         )
       }
 
       return () => {
         hls.current?.destroy?.()
       }
-    }, [videoRef, muxSrc, lazy, importHls, loadVideo])
+    }, [videoRef, muxSrc, lazy, importHls, loadVideo, lazyObserverOptions])
 
     return (
       <video ref={mergeRefs([videoRef, ref])} className={className} {...rest} />
