@@ -1,27 +1,45 @@
 import * as React from 'react'
 
-export const useIntersectionObserver = (
-  options: IntersectionObserverInit & { triggerOnce?: boolean }
-): [React.RefObject<HTMLDivElement>, { inView: boolean }] => {
-  const ref = React.useRef<HTMLDivElement>(null)
+type IntersectionObserverOptions = IntersectionObserverInit & {
+  triggerOnce?: boolean
+}
+
+export const createObserver = <T = HTMLElement>(
+  elm: T,
+  options: IntersectionObserverOptions,
+  cb: (entry: IntersectionObserverEntry) => void
+) => {
+  const handleObserve: IntersectionObserverCallback = ([element], observer) => {
+    if (element?.isIntersecting) {
+      if (options.triggerOnce) {
+        observer.unobserve(elm as unknown as Element)
+      }
+      cb(element)
+    }
+  }
+
+  const observer = new IntersectionObserver(handleObserve, options)
+
+  observer.observe(elm as unknown as Element)
+
+  return observer
+}
+
+export const useIntersectionObserver = <T = HTMLElement>(
+  options: IntersectionObserverOptions
+): [React.RefObject<T>, { inView: boolean }] => {
+  const ref = React.useRef<T>(null)
   const [inView, setInView] = React.useState(false)
 
   React.useEffect(() => {
     const elementToObserve = ref.current
     if (!elementToObserve) return
-    const handleObserve: IntersectionObserverCallback = ([element]) => {
-      if (element) {
-        setInView((p) => {
-          // trigger once?
-          if (options.triggerOnce && p === true) return p
-          else return element.isIntersecting
-        })
-      }
-    }
 
-    const observer = new IntersectionObserver(handleObserve, options)
-
-    observer.observe(elementToObserve)
+    const observer = createObserver(elementToObserve, options, (element) => {
+      setInView(() => {
+        return element.isIntersecting
+      })
+    })
 
     return () => {
       observer.disconnect()
