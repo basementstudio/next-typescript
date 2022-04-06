@@ -32,7 +32,7 @@ export const getSizes = (
       return `${entry}px`
     }
 
-    if (entry.breakpoint.includes('px')) {
+    if (entry.breakpoint.includes('px') || entry.breakpoint.includes('rem')) {
       return `(min-width: ${entry.breakpoint}) ${entry.width}`
     }
 
