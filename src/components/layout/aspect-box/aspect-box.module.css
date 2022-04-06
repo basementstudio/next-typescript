@@ -1,27 +1,13 @@
 .aspect-box {
   position: relative;
+  width: 100%;
+  padding-bottom: var(--ratio);
 }
 
-@supports (aspect-ratio: var(--raw-ratio)) {
-  .aspect-box {
-    aspect-ratio: var(--raw-ratio);
-  }
-}
-
-@supports not (aspect-ratio: var(--raw-ratio)) {
-  .aspect-box::before {
-    content: '';
-    width: 1px;
-    margin-left: -1px;
-    float: left;
-    height: 0;
-    padding-top: var(--ratio);
-  }
-
-  .aspect-box::after {
-    /* to clear float */
-    content: '';
-    display: table;
-    clear: both;
-  }
+.aspect-box > div {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
 }

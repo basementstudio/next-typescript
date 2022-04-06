@@ -1,4 +1,3 @@
-import clsx from 'clsx'
 import * as React from 'react'
 
 import s from './aspect-box.module.css'
@@ -9,16 +8,16 @@ export const AspectBox = React.forwardRef<
 >(({ ratio, children, className, style, ...rest }, ref) => {
   return (
     <div
-      {...rest}
-      ref={ref}
-      className={clsx(s['aspect-box'], className)}
+      className={s['aspect-box']}
       style={{
         ...style,
         ['--ratio' as string]: `${100 / ratio}%`,
         ['--raw-ratio' as string]: ratio
       }}
     >
-      {children}
+      <div {...rest} className={className} ref={ref}>
+        {children}
+      </div>
     </div>
   )
 })
