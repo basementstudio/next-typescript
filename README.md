@@ -36,8 +36,7 @@ The objective of this boilerplate is to set up everything the developer will nee
 
 ## Important Things to Do
 
-- [ ] Add project specific data to `./src/lib/constants`.
-- [ ] Add project specific data to `./next-sitemap.js`.
+- [ ] Check out `.env.example` for required environment variables to run the project.
 - [ ] Add favicons. (Re)Place in `./public`: _32x32_ `favicon.ico`, _perfect square_ `favicon.svg` and `favicon-dark.svg` (_dark theme_), _512x512_ `icon-512.png`, _192x192_ `icon-192.png`, _180x180_ `apple-touch-icon.png`. You can use something [like this](https://realfavicongenerator.net/) for some (better to use Gimp, Photoshop, or any graphics editor; read more about it [here](https://evilmartians.com/chronicles/how-to-favicon-in-2021-six-files-that-fit-most-needs)).
 - [ ] Delete `console.log(basementLog)` if not wanted — it's under `_app.tsx`.
 - [ ] Replace the contents of this file (`README.md`) with the contents of the `README.example.md` file — make sure to adapt it to your project's specific needs. Finally, delete the old `README.example.md` file.

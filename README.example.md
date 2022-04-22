@@ -27,6 +27,10 @@ Repository for `your-project`'s website.
    yarn dev
    ```
 
+## Things to Note
+
+- Make sure you read `.env.example` to see which environment variables you need to run the project.
+
 ---
 
-If you find you need to make extra config to make this work more seamlessly, feel free to submit a PR suggesting your changes. Our focus is to get you up and running with the least steps and burden as possible.
+If you find you need to make extra config to make this work more seamlessly, feel free to submit a PR suggesting your changes. The goal is to get you up and running with the least steps and burden as possible.
