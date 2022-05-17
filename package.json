@@ -231,7 +231,8 @@
       "selector-id-pattern": null,
       "selector-class-pattern": null,
       "property-no-vendor-prefix": null,
-      "value-no-vendor-prefix": null
+      "value-no-vendor-prefix": null,
+      "scss/no-global-function-names": null
     }
   },
   "lint-staged": {
