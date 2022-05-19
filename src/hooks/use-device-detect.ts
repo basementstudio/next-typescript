@@ -15,6 +15,7 @@ type DD = {
   isIOS?: boolean
   isAndroid?: boolean
   isBrowser?: boolean
+  isTouch?: boolean
 }
 
 export const useDeviceDetect = () => {
@@ -43,7 +44,8 @@ export const useDeviceDetect = () => {
       isWindows: ReactDeviceDetect.isWindows,
       isIOS: ReactDeviceDetect.isIOS,
       isAndroid: ReactDeviceDetect.isAndroid,
-      isBrowser: ReactDeviceDetect.isBrowser
+      isBrowser: ReactDeviceDetect.isBrowser,
+      isTouch: isTouchDevice
     })
   }, [])
 
