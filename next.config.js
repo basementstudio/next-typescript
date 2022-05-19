@@ -10,7 +10,8 @@ const config = {
   swcMinify: true,
   images: {
     formats: ['image/avif', 'image/webp']
-  }
+  },
+  experimental: { images: { layoutRaw: true } }
 }
 
 module.exports = withPlugins(

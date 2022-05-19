@@ -23,7 +23,8 @@
     "react": "^18.0.0",
     "react-device-detect": "2.1.2",
     "react-dom": "^18.0.0",
-    "react-merge-refs": "1.1.0"
+    "react-merge-refs": "1.1.0",
+    "zustand": "^4.0.0-rc.1"
   },
   "devDependencies": {
     "@next/bundle-analyzer": "^12.1.2",
@@ -232,7 +233,8 @@
       "selector-class-pattern": null,
       "property-no-vendor-prefix": null,
       "value-no-vendor-prefix": null,
-      "scss/no-global-function-names": null
+      "scss/no-global-function-names": null,
+      "scss/double-slash-comment-empty-line-before": null
     }
   },
   "lint-staged": {

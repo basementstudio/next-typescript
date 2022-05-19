@@ -1,10 +1,10 @@
-import '~/css/global.css'
+import '~/css/global.scss'
 
 import { NextComponentType, NextPageContext } from 'next'
 import { AppProps } from 'next/app'
 import * as React from 'react'
 
-import { AppContextProvider } from '~/context/app'
+import { useAppStore } from '~/context/use-app-store'
 import {
   basementLog,
   gaTrackingId,
@@ -66,6 +66,34 @@ const App = ({ Component, pageProps, ...rest }: AppProps) => {
     }
   }, [])
 
+  React.useEffect(() => {
+    const maxWaitTime = 1500 // tweak this as needed.
+
+    const timeout = window.setTimeout(() => {
+      onReady()
+    }, maxWaitTime)
+
+    function onReady() {
+      window.clearTimeout(timeout)
+      useAppStore.setState({ fontsLoaded: true })
+      document.documentElement.classList.add('fonts-loaded')
+    }
+
+    try {
+      document.fonts.ready
+        .then(() => {
+          onReady()
+        })
+        .catch((error: unknown) => {
+          console.error(error)
+          onReady()
+        })
+    } catch (error) {
+      console.error(error)
+      onReady()
+    }
+  }, [])
+
   const getLayout: GetLayoutFn =
     (Component as any).getLayout ||
     (({ Component, pageProps }) => <Component {...pageProps} />)
@@ -73,9 +101,7 @@ const App = ({ Component, pageProps, ...rest }: AppProps) => {
   return (
     <>
       {gaTrackingId && <GAScripts />}
-      <AppContextProvider>
-        {getLayout({ Component, pageProps, ...rest })}
-      </AppContextProvider>
+      {getLayout({ Component, pageProps, ...rest })}
     </>
   )
 }
