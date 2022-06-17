@@ -1,8 +1,9 @@
 # next-typescript
 
-[![from the basement.](https://basement.studio/gh-badge.svg)](https://basement.studio)
-
 The objective of this boilerplate is to set up everything the developer will need (in terms of configuration) to start a next + typescript project. Eslint, prettier and husky are configured to work independent of the user's IDE configuration (as long as it's vscode).
+
+![typescript](https://user-images.githubusercontent.com/13522179/174338949-b3ca8cd7-a7be-4fc2-8845-7e2c2f44a3b3.png)
+
 
 ## Featured Aspects of the Stack
 
