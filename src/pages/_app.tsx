@@ -27,7 +27,7 @@ export type Page<P = Record<string, unknown>> = NextComponentType<
 > & { getLayout?: GetLayoutFn<P> }
 
 export type GetLayoutFn<P = Record<string, unknown>> = (
-  props: AppProps<P>
+  props: Omit<AppProps<P>, 'pageProps'> & { pageProps: P }
 ) => React.ReactNode
 
 const App = ({ Component, pageProps, ...rest }: AppProps) => {
