@@ -1,13 +1,13 @@
 import * as React from 'react'
 import { createPortal } from 'react-dom'
 
-type Props = { id?: string; onMount?: () => void }
+type Props = { id?: string; onMount?: () => void; children?: React.ReactNode }
 
-export const Portal: React.FC<Props> = ({
+export const Portal = ({
   children,
   id = 'my-awesome-portal',
   onMount
-}) => {
+}: Props) => {
   const ref = React.useRef<HTMLElement>()
   const [isMounted, setIsMounted] = React.useState(false)
 

@@ -2,7 +2,7 @@ import * as React from 'react'
 
 export const useIntersectionObserver = (
   options: IntersectionObserverInit & { triggerOnce?: boolean }
-): [React.RefObject<HTMLDivElement>, { inView: boolean }] => {
+) => {
   const ref = React.useRef<HTMLDivElement>(null)
   const [inView, setInView] = React.useState(false)
 
@@ -28,5 +28,5 @@ export const useIntersectionObserver = (
     }
   }, [options])
 
-  return [ref, { inView }]
+  return [ref, inView] as const
 }
