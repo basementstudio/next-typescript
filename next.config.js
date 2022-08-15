@@ -1,4 +1,3 @@
-const withPlugins = require('next-compose-plugins')
 const withBundleAnalyzer = require('@next/bundle-analyzer')
 const withTM = require('next-transpile-modules')
 
@@ -14,7 +13,10 @@ const config = {
   experimental: { images: { layoutRaw: true } }
 }
 
-module.exports = withPlugins(
-  [withBundleAnalyzer({ enabled: process.env.ANALYZE === 'true' }), withTM([])],
-  config
-)
+module.exports = (_phase, { defaultConfig: _ }) => {
+  const plugins = [
+    withBundleAnalyzer({ enabled: process.env.ANALYZE === 'true' }),
+    withTM([]) // add modules you want to transpile here
+  ]
+  return plugins.reduce((acc, plugin) => plugin(acc), { ...config })
+}
