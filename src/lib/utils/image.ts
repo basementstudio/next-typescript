@@ -19,7 +19,9 @@ export const getNextImageSrc = ({
 
 export const findClosestNextImageWidth = (width: number): NextImageWidth => {
   return (
-    imageWidths.find((w) => w >= width) || imageWidths[imageWidths.length - 1]
+    (imageWidths.find((w) => w >= width) ||
+      imageWidths[imageWidths.length - 1]) ??
+    3840
   )
 }
 
@@ -31,10 +33,10 @@ export const getImageSizes = (
   let str = ''
 
   if (mobile) {
-    str += `(max-width: 767pxpx) ${mobile}, `
+    str += `(max-width: 767px) ${mobile}, `
   }
   if (tablet) {
-    str += `(max-width: 1024pxpx) ${tablet}, `
+    str += `(max-width: 1024px) ${tablet}, `
   }
   if (desktop) {
     str += desktop

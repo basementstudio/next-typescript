@@ -1,5 +1,6 @@
-import * as React from 'react'
 import * as ReactDeviceDetect from 'react-device-detect'
+
+import { useIsHydrated } from './use-is-hydrated'
 
 type DD = {
   isMobile?: boolean
@@ -17,8 +18,6 @@ type DD = {
   isBrowser?: boolean
   isTouch?: boolean
 }
-
-let hydrated = false
 
 function getDD() {
   const isTouchDevice =
@@ -49,12 +48,11 @@ function getDD() {
 }
 
 export const useDeviceDetect = (): DD => {
-  const [dd, set] = React.useState<DD>(() => (hydrated ? getDD() : {}))
+  const isHydrated = useIsHydrated()
 
-  React.useEffect(() => {
-    set(getDD())
-    hydrated = true
-  }, [])
+  if (!isHydrated) {
+    return {}
+  }
 
-  return dd
+  return getDD()
 }
