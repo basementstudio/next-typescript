@@ -18,6 +18,7 @@
     "strict": true,
     "target": "esnext",
     "noUncheckedIndexedAccess": true,
+    "importsNotUsedAsValues": "error",
     "baseUrl": "./src",
     "paths": {
       "~/public/*": ["../public/*"],

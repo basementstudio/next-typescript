@@ -1,7 +1,7 @@
 import '~/css/global.scss'
 
-import { NextComponentType, NextPageContext } from 'next'
-import { AppProps } from 'next/app'
+import type { NextComponentType, NextPageContext } from 'next'
+import type { AppProps } from 'next/app'
 import * as React from 'react'
 
 import { useAppStore } from '~/context/use-app-store'
