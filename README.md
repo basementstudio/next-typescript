@@ -4,6 +4,7 @@ The objective of this boilerplate is to set up everything the developer will nee
 
 ![typescript](https://user-images.githubusercontent.com/13522179/174338949-b3ca8cd7-a7be-4fc2-8845-7e2c2f44a3b3.png)
 
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fbasementstudio%2Fnext-typescript&env=NEXT_PUBLIC_SITE_URL&envDescription=e.g%3A%20https%3A%2F%2Fproject-name.vercel.app)
 
 ## Featured Aspects of the Stack
 
@@ -15,7 +16,7 @@ The objective of this boilerplate is to set up everything the developer will nee
 - It comes with Inter (it's better to host fonts here rather than getting them from google fonts).
 - Pages, components, etc... are located under `/src`. If you are changing this, be sure to also update `tsconfig.json`'s `baseUrl`.
 
-## Get Started
+## Development
 
 1. Install yarn:
 
