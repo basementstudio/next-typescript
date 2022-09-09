@@ -64,6 +64,10 @@ export const GAScripts = () => {
             gtag('config', '${gaTrackingId}', {
               page_path: window.location.pathname,
             });
+            // you can add more gtags here like:
+            // gtag('config', '<another-tracking-code>', {
+            //   page_path: window.location.pathname,
+            // });
           `
         }}
       />
