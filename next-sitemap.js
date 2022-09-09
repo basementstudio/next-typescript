@@ -4,4 +4,5 @@ module.exports = {
   siteUrl: siteURL.href,
   generateRobotsTxt: true,
   exclude: []
+  //
 }
