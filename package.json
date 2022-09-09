@@ -19,9 +19,9 @@
     "clsx": "1.1.1",
     "hls.js": "1.1.5",
     "mousetrap": "1.6.5",
-    "next": "^12.2.5",
+    "next": "^12.3.0",
     "react": "^18.2.0",
-    "react-device-detect": "2.1.2",
+    "react-device-detect": "^2.2.2",
     "react-dom": "^18.2.0",
     "react-merge-refs": "1.1.0",
     "zustand": "^4.0.0-rc.1"

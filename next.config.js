@@ -10,7 +10,7 @@ const config = {
   images: {
     formats: ['image/avif', 'image/webp']
   },
-  experimental: { images: { allowFutureImage: true } }
+  experimental: {}
 }
 
 module.exports = (_phase, { defaultConfig: _ }) => {
