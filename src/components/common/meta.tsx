@@ -1,9 +1,8 @@
-import { useRouter } from 'next/dist/client/router'
 import NextHead from 'next/head'
 import * as React from 'react'
 
 import { useMedia } from '~/hooks/use-media'
-import { defaultMeta, siteOrigin } from '~/lib/constants'
+import { defaultMeta, isClient } from '~/lib/constants'
 
 type BasicMeta = {
   title?: string
@@ -13,21 +12,20 @@ type BasicMeta = {
   noIndex?: boolean
   noFollow?: boolean
   themeColor?: string
-  preload?: { href: string; as: string }[]
-  prefetch?: { href: string; as: string }[]
+  preload?: { href: string; as: string; type: string; crossOrigin?: string }[]
+  prefetch?: { href: string; as: string; type: string; crossOrigin?: string }[]
 }
 
 export type MetaProps = BasicMeta
 
 export const Meta = (props: MetaProps) => {
-  const router = useRouter()
   const isDark = useMedia('(prefers-color-scheme: dark)')
 
   const resolvedMetadata = React.useMemo(() => {
     const data = {
       title: props.title ?? defaultMeta.title,
       description: props.description ?? defaultMeta.description,
-      canonical: props.cannonical ?? `${siteOrigin}${router.pathname}`,
+      canonical: props.cannonical ?? (isClient ? window.location.href : ''),
       ogImage: {
         url: props.ogImage ?? defaultMeta.ogImage,
         alt: props.title ?? defaultMeta.title,
@@ -47,12 +45,19 @@ export const Meta = (props: MetaProps) => {
       throw new Error('ogImage must be an absolute URL.')
     }
 
-    if (!data.canonical.startsWith('http')) {
+    if (isClient && !data.canonical.startsWith('http')) {
       throw new Error('canonical must be an absolute URL.')
     }
 
     return data
-  }, [props, router.pathname])
+  }, [
+    props.cannonical,
+    props.description,
+    props.noFollow,
+    props.noIndex,
+    props.ogImage,
+    props.title
+  ])
 
   return (
     <>
