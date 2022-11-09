@@ -1,7 +1,9 @@
 import '~/css/global.scss'
 
+import { Inter } from '@next/font/google'
 import type { NextComponentType, NextPageContext } from 'next'
 import type { AppProps } from 'next/app'
+import Head from 'next/head'
 import * as React from 'react'
 
 import { useAppStore } from '~/context/use-app-store'
@@ -14,25 +16,52 @@ import {
 } from '~/lib/constants'
 import { GAScripts, useAppGA } from '~/lib/ga'
 
+/* MISC */
+
 // TODO delete this basement log if not a basement project.
 if (isProd && isClient) {
   // eslint-disable-next-line no-console
   console.log(basementLog)
 }
 
-export type Page<P = Record<string, unknown>> = NextComponentType<
-  NextPageContext,
-  Record<string, unknown>,
-  P
-> & { getLayout?: GetLayoutFn<P> }
+/* CUSTOM APP */
 
-export type GetLayoutFn<P = Record<string, unknown>> = (
-  props: Omit<AppProps<P>, 'pageProps'> & { pageProps: P }
-) => React.ReactNode
+const inter = Inter()
 
 const App = ({ Component, pageProps, ...rest }: AppProps) => {
   if (gaTrackingId) useAppGA()
 
+  useOverflowDebuggerInDev()
+  useUserIsTabbing()
+  useFontsLoaded()
+
+  const getLayout: GetLayoutFn =
+    (Component as any).getLayout ||
+    (({ Component, pageProps }) => <Component {...pageProps} />)
+
+  return (
+    <>
+      {gaTrackingId && <GAScripts />}
+      <Head>
+        <style
+          type="text/css"
+          dangerouslySetInnerHTML={{
+            __html: `
+        :root {
+          --font-body: ${inter.style.fontFamily}, var(--font-system), sans-serif;
+        }
+        `
+          }}
+        />
+      </Head>
+      {getLayout({ Component, pageProps, ...rest })}
+    </>
+  )
+}
+
+/* APP HOOKS */
+
+const useOverflowDebuggerInDev = () => {
   React.useEffect(() => {
     if (!isDev) return
     let mousetrapRef: Mousetrap.MousetrapInstance | undefined = undefined
@@ -46,7 +75,8 @@ const App = ({ Component, pageProps, ...rest }: AppProps) => {
       mousetrapRef?.unbind(['command+i', 'ctrl+i', 'alt+i'])
     }
   }, [])
-
+}
+const useUserIsTabbing = () => {
   React.useEffect(() => {
     function handleKeyDown(event: KeyboardEvent) {
       if (event.code === `Tab`) {
@@ -65,7 +95,9 @@ const App = ({ Component, pageProps, ...rest }: AppProps) => {
       window.removeEventListener('mousedown', handleMouseDown)
     }
   }, [])
+}
 
+const useFontsLoaded = () => {
   React.useEffect(() => {
     const maxWaitTime = 1500 // tweak this as needed.
 
@@ -93,17 +125,20 @@ const App = ({ Component, pageProps, ...rest }: AppProps) => {
       onReady()
     }
   }, [])
-
-  const getLayout: GetLayoutFn =
-    (Component as any).getLayout ||
-    (({ Component, pageProps }) => <Component {...pageProps} />)
-
-  return (
-    <>
-      {gaTrackingId && <GAScripts />}
-      {getLayout({ Component, pageProps, ...rest })}
-    </>
-  )
 }
+
+/* TYPES */
+
+export type Page<P = Record<string, unknown>> = NextComponentType<
+  NextPageContext,
+  Record<string, unknown>,
+  P
+> & { getLayout?: GetLayoutFn<P> }
+
+export type GetLayoutFn<P = Record<string, unknown>> = (
+  props: Omit<AppProps<P>, 'pageProps'> & { pageProps: P }
+) => React.ReactNode
+
+/* EXPORT */
 
 export default App
