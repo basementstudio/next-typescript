@@ -6,7 +6,6 @@
   "author": "basement.studio",
   "private": true,
   "scripts": {
-    "prepare": "husky install",
     "dev": "next",
     "build": "next build",
     "build:analyze": "cross-env ANALYZE=true yarn build",
@@ -48,8 +47,6 @@
     "eslint-plugin-react": "7.29.2",
     "eslint-plugin-react-hooks": "4.3.0",
     "eslint-plugin-simple-import-sort": "7.0.0",
-    "husky": "^7.0.4",
-    "lint-staged": "^11.2.6",
     "next-sitemap": "^2.5.14",
     "next-transpile-modules": "^9.0.0",
     "prettier": "2.5.1",
@@ -236,10 +233,5 @@
       "scss/no-global-function-names": null,
       "scss/double-slash-comment-empty-line-before": null
     }
-  },
-  "lint-staged": {
-    "*.@(ts|tsx|css|scss)": [
-      "yarn lint --fix"
-    ]
   }
 }
