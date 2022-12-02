@@ -78,8 +78,8 @@ export const Meta = (props: MetaProps) => {
         <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
         <link rel="manifest" href="/manifest.webmanifest" />
 
-        {props.noIndex && <meta name="robots" content="noindex" />}
-        {props.noFollow && <meta name="robots" content="nofollow" />}
+        {resolvedMetadata.noIndex && <meta name="robots" content="noindex" />}
+        {resolvedMetadata.noFollow && <meta name="robots" content="nofollow" />}
 
         <title>{resolvedMetadata.title}</title>
         <meta name="description" content={resolvedMetadata.description} />
