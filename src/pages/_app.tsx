@@ -26,7 +26,9 @@ if (isProd && isClient) {
 
 /* CUSTOM APP */
 
-const inter = Inter()
+const inter = Inter({
+  subsets: ['latin']
+})
 
 const App = ({ Component, pageProps, ...rest }: AppProps) => {
   if (gaTrackingId) useAppGA()
