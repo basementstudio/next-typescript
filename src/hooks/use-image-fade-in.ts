@@ -1,9 +1,9 @@
 import { useState } from 'react'
 
-export const useImageImageFadeIn = () => {
+export const useImageFadeIn = () => {
   const [loaded, setLoaded] = useState(false)
   return {
-    style: { opacity: loaded ? 1 : 0, transition: 'opacity 200ms ease' },
+    style: { opacity: loaded ? 1 : undefined, transition: 'opacity 200ms ease' },
     onLoad: () => {
       setLoaded(true)
     }
