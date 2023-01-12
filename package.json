@@ -15,16 +15,16 @@
     "tsc": "tsc --pretty --noEmit"
   },
   "dependencies": {
-    "@next/font": "^13.0.2",
+    "@next/font": "^13.1.1",
     "clsx": "1.1.1",
     "hls.js": "1.1.5",
     "mousetrap": "1.6.5",
-    "next": "^13.0.2",
+    "next": "^13.1.1",
     "react": "^18.2.0",
     "react-device-detect": "^2.2.2",
     "react-dom": "^18.2.0",
     "react-merge-refs": "1.1.0",
-    "zustand": "^4.1.4"
+    "zustand": "^4.3.1"
   },
   "devDependencies": {
     "@next/bundle-analyzer": "^13.0.2",
