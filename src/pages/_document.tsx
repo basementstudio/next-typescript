@@ -16,7 +16,7 @@ class MyDocument extends Document {
     return (
       <Html lang="en">
         <Head />
-        <body style={{ opacity: 0 }}>
+        <body>
           <Main />
           <NextScript />
         </body>
