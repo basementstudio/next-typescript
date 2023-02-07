@@ -1,6 +1,6 @@
 import * as React from 'react'
 
-export const useIntersectionObserver = <T extends HTMLElement>(
+export const useIntersectionObserver = <T extends Element>(
   options: IntersectionObserverInit & { triggerOnce?: boolean }
 ) => {
   const ref = React.useRef<T>(null)
