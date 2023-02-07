@@ -13,7 +13,7 @@ export const useIntersectionObserver = <T extends Element>(
       if (element) {
         setInView((p) => {
           // trigger once?
-          if (options.triggerOnce && p === true) return p
+          if (options && options.triggerOnce && p === true) return p
           else return element.isIntersecting
         })
       }

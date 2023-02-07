@@ -10,7 +10,7 @@ type Props = {
 
 export const Portal = ({
   children,
-  id = 'my-awesome-portal',
+  id = 'basement-portal',
   onMount,
   className
 }: Props) => {
