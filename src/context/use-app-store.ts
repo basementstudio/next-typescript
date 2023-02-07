@@ -1,4 +1,4 @@
-import create from 'zustand'
+import { createStore } from 'zustand'
 
 // Extend this store if you need!
 
@@ -7,7 +7,7 @@ export interface AppStore {
   setFontsLoaded: (fontsLoaded: boolean) => void
 }
 
-export const useAppStore = create<AppStore>((set) => ({
+export const useAppStore = createStore<AppStore>((set) => ({
   fontsLoaded: false,
   setFontsLoaded: (fontsLoaded: boolean) => set((s) => ({ ...s, fontsLoaded }))
 }))
