@@ -22,8 +22,7 @@ html {
   background-color: black;
 
   // WARNING: if you don't want to use a fade in for the body, you can remove
-  // this chunk of CSS. But ALSO make sure you remove the style tag in the body in _document.tsx
-  // and the transition property on the body as well. thx.
+  // this chunk of CSS.
   &:not(.fonts-loaded) body {
     opacity: 0;
   }
