@@ -4,7 +4,7 @@ export const useImageFadeIn = () => {
   const [loaded, setLoaded] = useState(false)
   return {
     style: { opacity: loaded ? undefined : 0 },
-    onLoad: () => {
+    onLoadingComplete: () => {
       setLoaded(true)
     }
   }
