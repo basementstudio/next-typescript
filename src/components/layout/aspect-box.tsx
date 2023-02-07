@@ -1,13 +1,12 @@
 import * as React from 'react'
 
-export const AspectBox = ({
-  ratio,
-  children,
-  style,
-  ...rest
-}: { ratio: number } & Omit<JSX.IntrinsicElements['div'], 'ref'>) => {
+export const AspectBox = React.forwardRef<
+  HTMLDivElement,
+  { ratio: number } & JSX.IntrinsicElements['div']
+>(({ ratio, children, style, ...rest }, ref) => {
   return (
     <div
+      ref={ref}
       style={{
         position: 'relative',
         width: '100%',
@@ -29,4 +28,4 @@ export const AspectBox = ({
       </div>
     </div>
   )
-}
+})
