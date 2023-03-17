@@ -23,6 +23,7 @@ html {
 }
 
 body {
+  background-color: black;
   font-family: var(--font-body);
   transition: opacity #{$duration / 3 + 's'} ease-in;
 }
