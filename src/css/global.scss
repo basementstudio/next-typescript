@@ -42,6 +42,7 @@ body:not(.user-is-tabbing) textarea:focus {
 // WARNING: if you don't want to use a fade in for the body, you can remove
 // this chunk of CSS. But ALSO make sure you remove the style tag in the body in _document.tsx
 // and the transition property on the body as well. thx.
+// If you're using the next app dir make sure you remove the style tag in the root layout too.
 html.fonts-loaded body {
   opacity: 1 !important;
 }
