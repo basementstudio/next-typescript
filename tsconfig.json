@@ -18,7 +18,7 @@
     "strict": true,
     "target": "esnext",
     "noUncheckedIndexedAccess": true,
-    "importsNotUsedAsValues": "error",
+    "verbatimModuleSyntax": true,
     "baseUrl": "./src",
     "paths": {
       "~/public/*": ["../public/*"],
