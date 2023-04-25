@@ -1,8 +1,8 @@
 import '~/css/global.scss'
 
-import { Inter } from '@next/font/google'
 import type { NextComponentType, NextPageContext } from 'next'
 import type { AppProps } from 'next/app'
+import { Inter } from 'next/font/google'
 import Head from 'next/head'
 import * as React from 'react'
 

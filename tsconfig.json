@@ -2,8 +2,11 @@
   "compilerOptions": {
     "allowJs": true,
     "alwaysStrict": true,
+    "baseUrl": "./src",
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
+    "ignoreDeprecations": "5.0",
+    "incremental": true,
     "isolatedModules": true,
     "jsx": "preserve",
     "lib": ["dom", "es2017"],
@@ -11,21 +14,25 @@
     "moduleResolution": "node",
     "noEmit": true,
     "noFallthroughCasesInSwitch": true,
+    "noUncheckedIndexedAccess": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
+    "paths": {
+      "~/public/*": ["../public/*"],
+      "~/*": ["./*"],
+      "~/images/*": ["../public/images/*"]
+    },
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ],
     "resolveJsonModule": true,
     "skipLibCheck": true,
     "strict": true,
     "target": "esnext",
-    "noUncheckedIndexedAccess": true,
-    "importsNotUsedAsValues": "error",
-    "baseUrl": "./src",
-    "paths": {
-      "~/public/*": ["../public/*"],
-      "~/*": ["./*"]
-    },
-    "incremental": true
+    "verbatimModuleSyntax": true
   },
   "exclude": ["node_modules"],
-  "include": ["**/*.ts", "**/*.tsx"]
+  "include": ["**/*.ts", "**/*.tsx", ".next/types/**/*.ts"]
 }

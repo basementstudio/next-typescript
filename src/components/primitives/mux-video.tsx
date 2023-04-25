@@ -1,6 +1,6 @@
 import Hls, { Events } from 'hls.js'
 import * as React from 'react'
-import mergeRefs from 'react-merge-refs'
+import { mergeRefs } from 'react-merge-refs'
 
 export type MuxVideoProps = {
   muxSrc: string
