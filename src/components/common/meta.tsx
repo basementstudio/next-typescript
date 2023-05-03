@@ -7,7 +7,7 @@ import { defaultMeta, isClient } from '~/lib/constants'
 type BasicMeta = {
   title?: string
   description?: string
-  cannonical?: string
+  canonical?: string
   ogImage?: string
   noIndex?: boolean
   noFollow?: boolean
@@ -25,7 +25,7 @@ export const Meta = (props: MetaProps) => {
     const data = {
       title: props.title ?? defaultMeta.title,
       description: props.description ?? defaultMeta.description,
-      canonical: props.cannonical ?? (isClient ? window.location.href : ''),
+      canonical: props.canonical ?? (isClient ? window.location.href : ''),
       ogImage: {
         url: props.ogImage ?? defaultMeta.ogImage,
         alt: props.title ?? defaultMeta.title,
@@ -51,7 +51,7 @@ export const Meta = (props: MetaProps) => {
 
     return data
   }, [
-    props.cannonical,
+    props.canonical,
     props.description,
     props.noFollow,
     props.noIndex,
