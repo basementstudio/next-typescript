@@ -74,7 +74,8 @@
     "arrowParens": "always",
     "tabWidth": 2,
     "printWidth": 80,
-    "trailingComma": "none"
+    "trailingComma": "none",
+    "endOfLine": "auto"
   },
   "eslintConfig": {
     "parser": "@typescript-eslint/parser",
