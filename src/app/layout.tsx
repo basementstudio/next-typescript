@@ -4,6 +4,7 @@ import { Inter } from '@next/font/google'
 import type { Metadata } from 'next'
 
 import { AppHooks } from './app-hooks'
+import { Header } from './components/header'
 
 const inter = Inter({ subsets: ['latin'], variable: '--font-body' })
 
@@ -40,6 +41,7 @@ const RootLayout = ({ children }: { children: React.ReactNode }) => {
   return (
     <html lang="en">
       <body style={{ opacity: 0 }} className={inter.variable}>
+        <Header />
         {children}
         <AppHooks />
       </body>
