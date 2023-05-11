@@ -5,6 +5,10 @@
   --font-system: -apple-system, blinkmacsystemfont, segoe ui, roboto, oxygen,
     ubuntu, cantarell, fira sans, droid sans, helvetica neue, sans-serif;
   --inspect-color: #f00;
+  --color-black: #000;
+  --color-white: #fff;
+  --color-gray: #0f0f0f;
+  --color-gray-lighter: #262626;
 }
 
 html {
@@ -36,6 +40,17 @@ body:not(.user-is-tabbing) input:focus,
 body:not(.user-is-tabbing) select:focus,
 body:not(.user-is-tabbing) textarea:focus {
   outline: none;
+}
+
+// used in use-prevents-scroll hook
+
+html.no-scroll {
+  overflow: hidden;
+
+  body {
+    overflow: hidden;
+    touch-action: none;
+  }
 }
 
 // WARNING: if you don't want to use a fade in for the body, you can remove
