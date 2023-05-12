@@ -4,17 +4,26 @@ import mergeRefs from 'react-merge-refs'
 
 import { createObserver } from '~/hooks/use-intersection-observer'
 
+import { supportsHls } from './helpers'
+
 export type MuxVideoProps = {
   muxSrc: string
   lazy?: boolean
   lazyObserverOptions?: IntersectionObserverInit
 } & Omit<JSX.IntrinsicElements['video'], 'src'>
 
-const supportsHls = (videoElm: HTMLVideoElement) =>
-  videoElm.canPlayType('application/vnd.apple.mpegurl')
-
 export const MuxVideo = React.forwardRef<HTMLVideoElement, MuxVideoProps>(
-  ({ muxSrc, lazy = true, lazyObserverOptions, className, ...rest }, ref) => {
+  (
+    {
+      muxSrc,
+      lazy = true,
+
+      lazyObserverOptions,
+      className,
+      ...rest
+    },
+    ref
+  ) => {
     const hls = React.useRef<THls | null>(null)
     const videoRef = React.useRef<HTMLVideoElement>(null)
 
@@ -43,8 +52,10 @@ export const MuxVideo = React.forwardRef<HTMLVideoElement, MuxVideoProps>(
             !lazy && loadVideo(videoElm)
 
             hls.current?.on(Hls.Events.MANIFEST_PARSED, (_event, data) => {
+              const _hls = hls?.current as THls
+
               // Maximum quality available
-              hls.current!.nextLevel ??= data.levels.length - 1
+              _hls.nextLevel ??= data.levels.length - 1
             })
           })
         } else {
@@ -60,7 +71,7 @@ export const MuxVideo = React.forwardRef<HTMLVideoElement, MuxVideoProps>(
       const video = videoRef.current
       let intersectionObserver: IntersectionObserver
 
-      if (video.canPlayType('application/vnd.apple.mpegurl')) {
+      if (supportsHls(video)) {
         // Some browers (safari and ie edge) support HLS natively
         video.defaultMuted = true
         !lazy && loadVideo(video)
