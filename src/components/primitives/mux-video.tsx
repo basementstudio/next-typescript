@@ -80,6 +80,11 @@ export const MuxVideo = React.forwardRef<HTMLVideoElement, MuxVideoProps>(
   }
 )
 
+export const getMuxThumbnailSrc = (playbackId: string) => {
+  if (playbackId.startsWith('https://image.mux.com')) return playbackId
+  return `https://image.mux.com/${playbackId}/thumbnail.png`
+}
+
 export const getMuxSrc = (playbackId: string) => {
   if (playbackId.startsWith('https://stream.mux.com')) return playbackId
   return `https://stream.mux.com/${playbackId}.m3u8`
