@@ -74,7 +74,7 @@
     "tabWidth": 2,
     "printWidth": 80,
     "trailingComma": "none",
-    "endOfLine": "auto"
+    "endOfLine": "lf"
   },
   "eslintConfig": {
     "parser": "@typescript-eslint/parser",
@@ -147,7 +147,8 @@
         }
       ],
       "prettier/prettier": [
-        "warn"
+        "warn",
+        { "endOfLine": "auto" }
       ],
       "@typescript-eslint/explicit-module-boundary-types": "off"
     },
