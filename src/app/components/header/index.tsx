@@ -5,7 +5,7 @@ import Link from 'next/link'
 import React, { useState } from 'react'
 
 import s from './header.module.scss'
-import MobileMenu from './MobileMenu'
+import MobileMenu from './mobile-menu'
 
 export interface headerLink {
   name: string
