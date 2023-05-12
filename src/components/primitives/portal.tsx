@@ -1,13 +1,19 @@
 import * as React from 'react'
 import { createPortal } from 'react-dom'
 
-type Props = { id?: string; onMount?: () => void }
+type Props = {
+  id?: string
+  onMount?: () => void
+  children?: React.ReactNode
+  className?: string
+}
 
-export const Portal: React.FC<Props> = ({
+export const Portal = ({
   children,
-  id = 'my-awesome-portal',
-  onMount
-}) => {
+  id = 'basement-portal',
+  onMount,
+  className
+}: Props) => {
   const ref = React.useRef<HTMLElement>()
   const [isMounted, setIsMounted] = React.useState(false)
 
@@ -21,9 +27,10 @@ export const Portal: React.FC<Props> = ({
       portal.id = id
       document.body.appendChild(portal)
     }
+    portal.className = className ?? ''
     ref.current = portal
     setIsMounted(true)
-  }, [id])
+  }, [className, id])
 
   React.useEffect(() => {
     if (isMounted && onMount) onMount()

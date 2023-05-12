@@ -54,9 +54,21 @@ export const GAScripts = () => {
         src={`https://www.googletagmanager.com/gtag/js?id=${gaTrackingId}`}
       />
       <Script
+        id="gtag-init"
         strategy="afterInteractive"
         dangerouslySetInnerHTML={{
-          __html: `window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());gtag('config', '${gaTrackingId}');`
+          __html: `
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', '${gaTrackingId}', {
+              page_path: window.location.pathname,
+            });
+            // you can add more gtags here like:
+            // gtag('config', '<another-tracking-code>', {
+            //   page_path: window.location.pathname,
+            // });
+          `
         }}
       />
     </>

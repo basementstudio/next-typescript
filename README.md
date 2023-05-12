@@ -1,8 +1,10 @@
 # next-typescript
 
-[![from the basement.](https://basement.studio/gh-badge.svg)](https://basement.studio)
-
 The objective of this boilerplate is to set up everything the developer will need (in terms of configuration) to start a next + typescript project. Eslint, prettier and husky are configured to work independent of the user's IDE configuration (as long as it's vscode).
+
+![typescript](https://user-images.githubusercontent.com/13522179/174338949-b3ca8cd7-a7be-4fc2-8845-7e2c2f44a3b3.png)
+
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fbasementstudio%2Fnext-typescript&env=NEXT_PUBLIC_SITE_URL&envDescription=e.g%3A%20https%3A%2F%2Fproject-name.vercel.app)
 
 ## Featured Aspects of the Stack
 
@@ -14,7 +16,7 @@ The objective of this boilerplate is to set up everything the developer will nee
 - It comes with Inter (it's better to host fonts here rather than getting them from google fonts).
 - Pages, components, etc... are located under `/src`. If you are changing this, be sure to also update `tsconfig.json`'s `baseUrl`.
 
-## Get Started
+## Development
 
 1. Install yarn:
 
@@ -36,8 +38,7 @@ The objective of this boilerplate is to set up everything the developer will nee
 
 ## Important Things to Do
 
-- [ ] Add project specific data to `./src/lib/constants`.
-- [ ] Add project specific data to `./next-sitemap.js`.
+- [ ] Check out `.env.example` for required environment variables to run the project.
 - [ ] Add favicons. (Re)Place in `./public`: _32x32_ `favicon.ico`, _perfect square_ `favicon.svg` and `favicon-dark.svg` (_dark theme_), _512x512_ `icon-512.png`, _192x192_ `icon-192.png`, _180x180_ `apple-touch-icon.png`. You can use something [like this](https://realfavicongenerator.net/) for some (better to use Gimp, Photoshop, or any graphics editor; read more about it [here](https://evilmartians.com/chronicles/how-to-favicon-in-2021-six-files-that-fit-most-needs)).
 - [ ] Delete `console.log(basementLog)` if not wanted — it's under `_app.tsx`.
 - [ ] Replace the contents of this file (`README.md`) with the contents of the `README.example.md` file — make sure to adapt it to your project's specific needs. Finally, delete the old `README.example.md` file.
