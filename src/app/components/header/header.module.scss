@@ -10,8 +10,8 @@
 }
 
 .logo {
-  width: tovw(24px, 29px, 'mobile');
-  height: tovw(24px, 29px, 'mobile');
+  width: 2.75rem;
+  height: 2.25rem;
 
   & svg {
     height: 100%;
@@ -19,7 +19,7 @@
 }
 
 .header {
-  height: tovw(48px, 59px, 'mobile');
+  height: 4.5rem;
   padding: 0 tovw(16px, 16px, 'mobile');
   display: flex;
   align-items: center;
@@ -30,8 +30,8 @@
 }
 
 .icon {
-  width: tovw(24px, 29px, 'mobile');
-  height: tovw(24px, 29px, 'mobile');
+  width: 2.75rem;
+  height: 2.75rem;
 
   & svg {
     height: 100%;
@@ -181,31 +181,12 @@
   }
 }
 
-@media (min-width: 768px) {
-  .header {
-    height: tovw(48px, 48px, 'tablet');
-  }
-
-  .logo {
-    width: tovw(32px, 32px, 'desktop');
-    height: tovw(32px, 32px, 'desktop');
-  }
-
-  .icon {
-    width: tovw(32px, 32px, 'desktop');
-    height: tovw(32px, 32px, 'desktop');
-  }
-}
-
 @media (min-width: 1024px) {
   .header {
-    height: tovw(44px, 80px);
     padding: 0 tovw(30px);
   }
 
   .logo {
-    width: tovw(28px, 28px, 'desktop');
-    height: tovw(28px, 28px, 'desktop');
     flex-grow: 1;
     flex-basis: 30%;
   }
