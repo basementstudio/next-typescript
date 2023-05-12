@@ -14,9 +14,6 @@ export const metadata: Metadata = {
     template: '%s | basement.studio'
   },
   description: `A minimalist's boilerplate — Next.js with TypeScript.`,
-  //   alternates: {
-  //     canonical: isClient ? window.location.href : ''
-  //   },
   openGraph: {
     type: 'website',
     siteName: 'next-typescript | basement.studio',
