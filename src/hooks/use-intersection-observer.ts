@@ -1,23 +1,7 @@
 import * as React from 'react'
 
-export type UseIntersectionObserverOptions = IntersectionObserverInit & {
-  triggerOnce?: boolean
-}
-
-export const createObserver = <T = HTMLElement>(
-  elm: T,
-  options: UseIntersectionObserverOptions,
-  handler: IntersectionObserverCallback
-) => {
-  const observer = new IntersectionObserver(handler, options)
-
-  observer.observe(elm as unknown as Element)
-
-  return observer
-}
-
 export const useIntersectionObserver = <T extends Element>(
-  options: UseIntersectionObserverOptions
+  options: IntersectionObserverInit & { triggerOnce?: boolean }
 ) => {
   const ref = React.useRef<T>(null)
   const [inView, setInView] = React.useState(false)
@@ -28,13 +12,16 @@ export const useIntersectionObserver = <T extends Element>(
     const handleObserve: IntersectionObserverCallback = ([element]) => {
       if (element) {
         setInView((p) => {
+          // trigger once?
           if (options && options.triggerOnce && p === true) return p
           else return element.isIntersecting
         })
       }
     }
 
-    const observer = createObserver(elementToObserve, options, handleObserve)
+    const observer = new IntersectionObserver(handleObserve, options)
+
+    observer.observe(elementToObserve)
 
     return () => {
       observer.disconnect()
