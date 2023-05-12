@@ -15,7 +15,6 @@
     "tsc": "tsc --pretty --noEmit"
   },
   "dependencies": {
-    "@next/font": "^13.1.1",
     "clsx": "1.1.1",
     "hls.js": "1.1.5",
     "mousetrap": "1.6.5",
