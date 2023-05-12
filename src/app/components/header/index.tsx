@@ -1,8 +1,6 @@
-'use client'
-
 import clsx from 'clsx'
 import Link from 'next/link'
-import React, { useState } from 'react'
+import React from 'react'
 
 import s from './header.module.scss'
 import MobileMenu from './mobile-menu'
@@ -18,10 +16,6 @@ export const Header = () => {
     { name: 'About', url: '/about' },
     { name: 'Contact', url: '/contact' }
   ]
-  const [isOpen, setIsOpen] = useState(false)
-
-  const closeMenu = () => setIsOpen(false)
-  const openMenu = () => setIsOpen(true)
 
   return (
     <>
@@ -72,20 +66,7 @@ export const Header = () => {
               </li>
             ))}
           </ul>
-          <button className={clsx(s.icon, s.burguer)} onClick={openMenu}>
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 28 28">
-              <path d="M1 8h15v2H1z" fill="currentColor"></path>
-              <line
-                x1="1"
-                y1="15"
-                x2="25"
-                y2="15"
-                stroke="currentColor"
-                strokeWidth="2"
-              ></line>
-              <path d="M1 20h24v2H1z" fill="currentColor"></path>
-            </svg>
-          </button>
+          <MobileMenu links={navLinks} />
           <div className={s.navButtonContainer}>
             <button className={clsx(s.navButton, s.navButtonPrimary)}>
               Primary
@@ -96,7 +77,6 @@ export const Header = () => {
           </div>
         </header>
       </div>
-      {isOpen && <MobileMenu close={closeMenu} links={navLinks} />}
     </>
   )
 }
