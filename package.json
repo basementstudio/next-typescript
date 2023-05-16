@@ -15,7 +15,6 @@
     "tsc": "tsc --pretty --noEmit"
   },
   "dependencies": {
-    "@next/font": "^13.1.1",
     "clsx": "1.1.1",
     "hls.js": "1.1.5",
     "mousetrap": "1.6.5",
@@ -74,7 +73,8 @@
     "arrowParens": "always",
     "tabWidth": 2,
     "printWidth": 80,
-    "trailingComma": "none"
+    "trailingComma": "none",
+    "endOfLine": "lf"
   },
   "eslintConfig": {
     "parser": "@typescript-eslint/parser",
@@ -147,7 +147,8 @@
         }
       ],
       "prettier/prettier": [
-        "warn"
+        "warn",
+        { "endOfLine": "auto" }
       ],
       "@typescript-eslint/explicit-module-boundary-types": "off"
     },

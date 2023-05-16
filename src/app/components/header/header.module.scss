@@ -1,0 +1,205 @@
+@import '~/css/helpers';
+
+.container {
+  z-index: 50;
+  position: sticky;
+  width: 100%;
+  top: 0;
+  padding: 0;
+  background: var(--color-black);
+}
+
+.logo {
+  width: 2.75rem;
+  height: 2.25rem;
+
+  & svg {
+    height: 100%;
+  }
+}
+
+.header {
+  height: 4.5rem;
+  padding: 0 tovw(16px, 16px, 'mobile');
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  z-index: 40;
+  position: relative;
+  border-bottom: 1px solid var(--color-gray-lighter);
+}
+
+.icon {
+  width: 2.75rem;
+  height: 2.75rem;
+
+  & svg {
+    height: 100%;
+  }
+}
+
+.nav {
+  display: none;
+  align-items: center;
+  gap: 0.925rem;
+
+  &Item {
+    font-size: max(16px, 0.925vw);
+    font-weight: 300;
+    position: relative;
+
+    &::after {
+      content: '';
+      position: absolute;
+      width: 100%;
+      transform: scaleX(0);
+      height: 1px;
+      bottom: -1px;
+      left: 0;
+      background-color: var(--color-white);
+      transform-origin: bottom right;
+      transition: transform 150ms ease-in-out;
+    }
+
+    &:hover::after {
+      transform: scaleX(1);
+      transform-origin: bottom left;
+    }
+  }
+
+  &Button {
+    font-size: max(16px, 0.925vw);
+    padding: 0.325rem 1.35rem;
+    border-radius: 999px;
+    transition: all 150ms ease-in-out;
+    font-weight: 600;
+
+    &:hover {
+      color: var(--color-white);
+    }
+
+    &Primary {
+      border: 1px solid var(--color-gray);
+      background: var(--color-gray-lighter);
+      color: var(--color-white);
+
+      &:hover {
+        border: 1px solid var(--color-gray-lighter);
+        background: var(--color-black);
+      }
+    }
+
+    &Secondary {
+      border: 1px solid var(--color-gray-lighter);
+      background: var(--color-black);
+      color: var(--color-white);
+      font-style: italic;
+
+      &:hover {
+        background: var(--color-gray);
+      }
+    }
+
+    &Container {
+      display: none;
+      align-items: center;
+      justify-content: flex-end;
+      flex-grow: 1;
+      flex-basis: 30%;
+      gap: 0.925rem;
+    }
+  }
+}
+
+.announcement {
+  &Banner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    border-bottom: 1px solid var(--color-gray-lighter);
+    background: var(--color-black);
+    height: 40px;
+    width: 100%;
+
+    & svg {
+      height: 12px;
+    }
+  }
+
+  &Text {
+    line-height: 1.19rem;
+    letter-spacing: -0.02em;
+    text-transform: uppercase;
+    font-size: max(12px, 0.625vw);
+
+    & span {
+      display: none;
+      @screen lg {
+        display: inline;
+      }
+    }
+  }
+}
+
+.menu {
+  &Container {
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 100;
+    background: var(--color-black);
+  }
+
+  &Header {
+    height: tovw(48px, 59px, 'mobile');
+    border-bottom: 1px solid var(--color-gray-lighter);
+  }
+
+  &Links {
+    font-size: clamp(32px, 5vw, 10vh);
+    text-transform: uppercase;
+    font-weight: 200;
+
+    &Container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex: 1 0 70%;
+
+      & ul {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+      }
+    }
+  }
+}
+
+@media (min-width: 1024px) {
+  .header {
+    padding: 0 tovw(30px);
+  }
+
+  .logo {
+    flex-grow: 1;
+    flex-basis: 30%;
+  }
+
+  .burguer {
+    display: none;
+  }
+
+  .nav {
+    display: flex;
+
+    &ButtonContainer {
+      display: flex;
+    }
+  }
+}
