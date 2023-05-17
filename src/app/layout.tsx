@@ -14,11 +14,6 @@ export const metadata: Metadata = {
     template: '%s | basement.studio'
   },
   description: `A minimalist's boilerplate — Next.js with TypeScript.`,
-  openGraph: {
-    type: 'website',
-    siteName: 'next-typescript | basement.studio',
-    title: 'next-typescript | basement.studio'
-  },
   icons: [
     {
       rel: 'apple-touch-icon',
