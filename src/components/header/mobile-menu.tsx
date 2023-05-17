@@ -4,9 +4,9 @@ import clsx from 'clsx'
 import Link from 'next/link'
 import React, { FC, useState } from 'react'
 
-import { Portal } from '~/components/primitives/portal'
 import { usePreventScroll } from '~/hooks/use-prevent-scroll'
 
+import { Portal } from '../portal'
 import type { headerLink } from '.'
 import s from './header.module.scss'
 

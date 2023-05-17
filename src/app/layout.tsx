@@ -3,8 +3,9 @@ import '~/css/global.scss'
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 
+import { Header } from '~/components/header'
+
 import { AppHooks } from './app-hooks'
-import { Header } from './components/header'
 
 const inter = Inter({ subsets: ['latin'], variable: '--font-body' })
 
@@ -14,11 +15,6 @@ export const metadata: Metadata = {
     template: '%s | basement.studio'
   },
   description: `A minimalist's boilerplate — Next.js with TypeScript.`,
-  openGraph: {
-    type: 'website',
-    siteName: 'next-typescript | basement.studio',
-    title: 'next-typescript | basement.studio'
-  },
   icons: [
     {
       rel: 'apple-touch-icon',

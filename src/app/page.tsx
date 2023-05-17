@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { Welcome } from '~/components/common/welcome'
+import { Welcome } from '~/app/sections/welcome'
 
 const HomePage = () => {
   return (
