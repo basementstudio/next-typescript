@@ -4,6 +4,7 @@ import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 
 import { Header } from '~/components/header'
+import { siteURL } from '~/lib/constants'
 
 import { AppHooks } from './app-hooks'
 
@@ -14,6 +15,7 @@ export const metadata: Metadata = {
     default: 'next-typescript | basement.studio',
     template: '%s | basement.studio'
   },
+  metadataBase: siteURL,
   description: `A minimalist's boilerplate — Next.js with TypeScript.`,
   icons: [
     {
