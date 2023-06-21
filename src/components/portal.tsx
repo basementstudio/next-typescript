@@ -36,5 +36,5 @@ export const Portal = ({
     if (isMounted && onMount) onMount()
   }, [isMounted, onMount])
 
-  return isMounted && ref.current ? createPortal(children, ref.current) : null
+  return isMounted && ref.current ? createPortal(children, ref.current) : <></>
 }

@@ -18,12 +18,12 @@
     "clsx": "1.1.1",
     "hls.js": "1.1.5",
     "mousetrap": "1.6.5",
-    "next": "^13.1.1",
+    "next": "^13.4.6",
     "react": "^18.2.0",
     "react-device-detect": "^2.2.2",
     "react-dom": "^18.2.0",
     "react-merge-refs": "1.1.0",
-    "zustand": "^4.3.1"
+    "zustand": "^4.3.8"
   },
   "devDependencies": {
     "@next/bundle-analyzer": "^13.0.2",
@@ -31,8 +31,8 @@
     "@types/css-font-loading-module": "0.0.7",
     "@types/mousetrap": "1.6.9",
     "@types/node": "17.0.21",
-    "@types/react": "^18.0.25",
-    "@types/react-dom": "^18.0.8",
+    "@types/react": "^18.2.13",
+    "@types/react-dom": "^18.2.6",
     "@typescript-eslint/eslint-plugin": "^4.33.0",
     "@typescript-eslint/parser": "^4.33.0",
     "babel-plugin-optimize-clsx": "^2.6.2",
@@ -55,7 +55,7 @@
     "stylelint-config-standard": "^23.0.0",
     "stylelint-config-standard-scss": "^2.0.1",
     "stylelint-prettier": "^1.2.0",
-    "typescript": "^4.8.4"
+    "typescript": "^5.1.3"
   },
   "engines": {
     "node": "18.x",
@@ -148,7 +148,9 @@
       ],
       "prettier/prettier": [
         "warn",
-        { "endOfLine": "auto" }
+        {
+          "endOfLine": "auto"
+        }
       ],
       "@typescript-eslint/explicit-module-boundary-types": "off"
     },
