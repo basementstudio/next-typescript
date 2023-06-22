@@ -28,6 +28,7 @@
   "devDependencies": {
     "@next/bundle-analyzer": "^13.0.2",
     "@next/eslint-plugin-next": "^13.0.2",
+    "@total-typescript/ts-reset": "^0.4.2",
     "@types/css-font-loading-module": "0.0.7",
     "@types/mousetrap": "1.6.9",
     "@types/node": "17.0.21",
