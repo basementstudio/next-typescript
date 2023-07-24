@@ -27,6 +27,7 @@ export const AppHooks = () => {
 
   return gaTrackingId ? <GAScripts /> : null
 }
+
 /* APP HOOKS */
 
 const useOverflowDebuggerInDev = () => {

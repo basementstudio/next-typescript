@@ -7,6 +7,7 @@ import { Header } from '~/components/header'
 import { siteURL } from '~/lib/constants'
 
 import { AppHooks } from './app-hooks'
+import { Providers } from './providers'
 
 const inter = Inter({ subsets: ['latin'], variable: '--font-body' })
 
@@ -36,9 +37,11 @@ const RootLayout = ({ children }: { children: React.ReactNode }) => {
   return (
     <html lang="en">
       <body style={{ opacity: 0 }} className={inter.variable}>
-        <Header />
-        {children}
-        <AppHooks />
+        <Providers>
+          <Header />
+          {children}
+          <AppHooks />
+        </Providers>
       </body>
     </html>
   )

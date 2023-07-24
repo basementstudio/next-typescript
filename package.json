@@ -15,6 +15,7 @@
     "tsc": "tsc --pretty --noEmit"
   },
   "dependencies": {
+    "@tanstack/react-query": "^4.32.0",
     "clsx": "1.1.1",
     "hls.js": "1.1.5",
     "mousetrap": "1.6.5",
@@ -23,6 +24,7 @@
     "react-device-detect": "^2.2.2",
     "react-dom": "^18.2.0",
     "react-merge-refs": "1.1.0",
+    "zod": "^3.21.4",
     "zustand": "^4.3.8"
   },
   "devDependencies": {
