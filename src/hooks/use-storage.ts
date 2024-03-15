@@ -30,8 +30,9 @@ export const useStorage = <Schema extends z.ZodTypeAny>(
     (valueOrUpdater: ValueOrUpdater<Value>) => {
       if (isDisabled) return
       const nextValue =
-        typeof valueOrUpdater === 'function'
-          ? // @ts-expect-error ???
+        valueOrUpdater instanceof Function
+          ? // @ts-expect-error (now it's failing because prev is undefined, i don't know what is prev, i think
+            // here should be `valueOrUpdater(query.data)` but im nt sure
             valueOrUpdater(prev)
           : valueOrUpdater
       window[type].setItem(key, JSON.stringify(nextValue))
