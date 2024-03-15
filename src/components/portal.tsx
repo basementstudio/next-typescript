@@ -10,7 +10,7 @@ type Props = {
 
 export const Portal = ({
   children,
-  id = 'my-awesome-portal',
+  id = 'basement-portal',
   onMount,
   className
 }: Props) => {
@@ -36,5 +36,5 @@ export const Portal = ({
     if (isMounted && onMount) onMount()
   }, [isMounted, onMount])
 
-  return isMounted && ref.current ? createPortal(children, ref.current) : null
+  return isMounted && ref.current ? createPortal(children, ref.current) : <></>
 }

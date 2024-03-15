@@ -1,9 +1,9 @@
 import * as React from 'react'
 
-export const useIntersectionObserver = (
+export const useIntersectionObserver = <T extends Element>(
   options: IntersectionObserverInit & { triggerOnce?: boolean }
 ) => {
-  const ref = React.useRef<HTMLDivElement>(null)
+  const ref = React.useRef<T>(null)
   const [inView, setInView] = React.useState(false)
 
   React.useEffect(() => {
@@ -13,7 +13,7 @@ export const useIntersectionObserver = (
       if (element) {
         setInView((p) => {
           // trigger once?
-          if (options.triggerOnce && p === true) return p
+          if (options && options.triggerOnce && p === true) return p
           else return element.isIntersecting
         })
       }
