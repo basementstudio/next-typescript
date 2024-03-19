@@ -3,7 +3,7 @@ const imageWidths = [
   16, 32, 48, 64, 96, 128, 256, 384, 640, 750, 828, 1080, 1200, 1920, 2048, 3840
 ] as const
 
-export type NextImageWidth = typeof imageWidths[number]
+export type NextImageWidth = (typeof imageWidths)[number]
 
 export const getNextImageSrc = ({
   src,
@@ -30,17 +30,7 @@ export const getImageSizes = (
   tablet?: number,
   mobile?: number
 ) => {
-  let str = ''
-
-  if (mobile) {
-    str += `(max-width: 767px) ${mobile}, `
-  }
-  if (tablet) {
-    str += `(max-width: 1024px) ${tablet}, `
-  }
-  if (desktop) {
-    str += desktop
-  }
-
-  return str
+  return `${typeof mobile === 'number' && `(max-width: 767px) ${mobile}vw, `}${
+    typeof tablet === 'number' && `(max-width: 1024px) ${tablet}vw, `
+  }${desktop}vw`.replace(/undefined/g, '')
 }
