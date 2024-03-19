@@ -1,6 +1,7 @@
 import { clsx } from 'clsx'
-import Link from 'next/link'
 import React from 'react'
+
+import Link from '~/components/primitives/link'
 
 import s from './header.module.scss'
 import MobileMenu from './mobile-menu'
