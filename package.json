@@ -59,7 +59,7 @@
     "typescript": "^5.4.2"
   },
   "engines": {
-    "node": "18.x",
+    "node": "20.x",
     "yarn": "1.x"
   },
   "browserslist": [

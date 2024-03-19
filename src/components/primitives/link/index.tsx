@@ -1,9 +1,14 @@
-import { checkIsExternal } from 'lib/utils/router'
+import type { UrlObject } from 'node:url'
+
 import NextLink, { LinkProps as NextLinkProps } from 'next/link'
 import * as React from 'react'
 
+import { canPrefetch as defaultCanPrefetch } from '~/lib/utils/can-prefetch'
+import { checkIsExternal } from '~/lib/utils/router'
+
 export type LinkProps = {
   children: string | JSX.IntrinsicElements['a']['children']
+  canPrefetch?: (href: string | UrlObject) => boolean
 } & Omit<JSX.IntrinsicElements['a'], 'children'> &
   Omit<NextLinkProps, 'as' | 'passHref' | 'children'>
 
@@ -12,6 +17,7 @@ const Link = React.forwardRef<HTMLAnchorElement, LinkProps>(
     const {
       href,
       // NextLink Props
+      canPrefetch = defaultCanPrefetch,
       replace,
       scroll = false,
       shallow,
@@ -22,25 +28,31 @@ const Link = React.forwardRef<HTMLAnchorElement, LinkProps>(
 
     const isExternal = checkIsExternal(href)
 
+    const canPrefetchHref = href && canPrefetch(href)
+    const shouldPrefetch = prefetch && canPrefetchHref
+
+    const anchorProps = {
+      ...(isExternal ? { rel: 'noopener noreferrer', target: '_blank' } : {}),
+      ...aProps
+    }
+
+    if (!href) {
+      console.warn('Link component is missing an href prop.')
+      return null
+    }
+
     return (
       <NextLink
+        className={className}
         href={href}
-        legacyBehavior
-        passHref
-        prefetch={prefetch}
+        prefetch={shouldPrefetch ? undefined : false}
+        ref={ref}
         replace={replace}
         scroll={scroll}
         shallow={shallow}
+        {...anchorProps}
       >
-        <a
-          className={className}
-          ref={ref}
-          rel={isExternal ? 'noopener' : undefined}
-          target={isExternal ? '_blank' : undefined}
-          {...aProps}
-        >
-          {children}
-        </a>
+        {children}
       </NextLink>
     )
   }
