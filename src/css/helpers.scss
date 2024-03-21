@@ -5,6 +5,36 @@
 $golden-ratio: 1.6180339887498948482;
 $reciprocal-golden-ratio: 1 / $golden-ratio;
 $duration: $reciprocal-golden-ratio * 1.2;
+$layout: (
+  'columns-count': (
+    4,
+    12
+  ),
+  'columns-gap': (
+    16px,
+    16px
+  ),
+  'margin': (
+    16px,
+    16px
+  )
+);
+
+/* Breakpoints */
+$mobile-breakpoint: 800px;
+
+// Breakpoint
+@mixin mobile {
+  @media (max-width: #{$mobile-breakpoint - 1px}) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media (min-width: #{$mobile-breakpoint}) {
+    @content;
+  }
+}
 
 @function tovw($target, $min: 'placeholder', $context: 1920px) {
   @if $context == 'desktop-large' {

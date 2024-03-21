@@ -12,7 +12,7 @@ interface GridDebuggerProps {
 }
 
 export function GridDebugger({
-  gridClassName = 'layout-grid'
+  gridClassName = s['layout-grid']
 }: GridDebuggerProps) {
   const { width: windowWidth, height: windowHeight } = useWindowSize()
 

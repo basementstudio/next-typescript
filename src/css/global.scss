@@ -1,36 +1,7 @@
+/* stylelint-disable scss/operator-no-newline-after */
+@use 'sass:map';
 @import './helpers';
 @import './reset.css';
-
-.layout-block {
-  max-width: var(--layout-width);
-  margin-left: auto;
-  margin-right: auto;
-  width: 100%;
-}
-
-.layout-block-inner {
-  padding-left: var(--layout-margin);
-  padding-right: var(--layout-margin);
-  width: 100%;
-}
-
-.layout-grid {
-  @extend %layout-block !optional;
-
-  display: grid;
-  grid-template-columns: repeat(var(--layout-columns-count), minmax(0, 1fr));
-  grid-gap: var(--layout-columns-gap);
-  width: 100%;
-}
-
-.layout-grid-inner {
-  @extend %layout-block-inner !optional;
-
-  display: grid;
-  grid-template-columns: repeat(var(--layout-columns-count), minmax(0, 1fr));
-  grid-gap: var(--layout-columns-gap);
-  width: 100%;
-}
 
 :root {
   --font-system: -apple-system, blinkmacsystemfont, segoe ui, roboto, oxygen,
@@ -40,10 +11,29 @@
   --color-white: #fff;
   --color-gray: #0f0f0f;
   --color-gray-lighter: #262626;
-  --layout-columns-count: 12;
-  --layout-columns-gap: 24px;
-  --layout-margin: 40px;
+  --layout-columns-count: #{nth(map.get($layout, 'columns-count'), 1)};
+  --layout-columns-gap: #{tovw(
+      nth(map.get($layout, 'columns-gap'), 1),
+      'mobile'
+    )};
+  --layout-margin: #{tovw(nth(map.get($layout, 'margin'), 1), 'mobile')};
+
+  @include desktop {
+    --layout-columns-count: #{nth(map.get($layout, 'columns-count'), 2)};
+    --layout-columns-gap: #{tovw(
+        nth(map.get($layout, 'columns-gap'), 2),
+        'desktop'
+      )};
+    --layout-margin: #{tovw(nth(map.get($layout, 'margin'), 2), 'desktop')};
+  }
+
   --layout-width: calc(100vw - (2 * var(--layout-margin)));
+  --layout-column-width: calc(
+    (
+        var(--layout-width) -
+          ((var(--layout-columns-count) - 1) * var(--layout-columns-gap))
+      ) / var(--layout-columns-count)
+  );
 }
 
 html {
