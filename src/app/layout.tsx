@@ -5,6 +5,7 @@ import { Inter } from 'next/font/google'
 
 import { Header } from '~/components/header'
 import { siteURL } from '~/lib/constants'
+import { GridDebugger } from '~/lib/debug/grid-debugger'
 
 import { AppHooks } from './app-hooks'
 import { Providers } from './providers'
@@ -40,6 +41,7 @@ const RootLayout = ({ children }: { children: React.ReactNode }) => {
         <Providers>
           <Header />
           {children}
+          <GridDebugger />
           <AppHooks />
         </Providers>
       </body>
