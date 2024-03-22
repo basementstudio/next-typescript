@@ -1,38 +1,57 @@
 'use client'
 
-import cn from 'clsx'
-import { useMemo } from 'react'
+import { useEffect, useRef, useState } from 'react'
 
 import { useWindowSize } from '~/hooks/use-window-size'
 
 import s from './grid.module.scss'
 
 interface GridDebuggerProps {
-  gridClassName?: string
+  fixed?: boolean
 }
 
-export function GridDebugger({
-  gridClassName = s['layout-grid']
-}: GridDebuggerProps) {
-  const { width: windowWidth, height: windowHeight } = useWindowSize()
+const GridDebugger = ({ fixed = false }: GridDebuggerProps) => {
+  const [columns, setColumns] = useState(0)
+  const ref = useRef<HTMLDivElement>(null)
+  const { width, height } = useWindowSize()
 
-  const columns = useMemo(() => {
-    // Asumimos que `getComputedStyle` y `getPropertyValue` siempre devuelven un string,
-    // pero podría ser vacío. Por eso, usamos el operador || para asegurar un string antes de convertirlo a número.
-    const columnsCount =
-      getComputedStyle(document.documentElement).getPropertyValue(
-        '--layout-columns-count'
-      ) || '0'
-    return parseInt(columnsCount, 10)
-  }, [windowWidth, windowHeight])
+  const [isVisible, setIsVisible] = useState(false)
+
+  useEffect(() => {
+    const updateColumns = () => {
+      if (ref.current) {
+        const columnsCount =
+          getComputedStyle(ref.current).getPropertyValue('--columns') || '12'
+        setColumns(parseInt(columnsCount, 10))
+      }
+    }
+
+    updateColumns()
+  }, [width, height])
+
+  useEffect(() => {
+    const toggleVisibilityOnKeyPress = (e: KeyboardEvent) => {
+      if (e.key === 'g' || e.key === 'G') {
+        setIsVisible((prevIsVisible) => !prevIsVisible)
+      }
+    }
+
+    window.addEventListener('keydown', toggleVisibilityOnKeyPress)
+
+    return () => {
+      window.removeEventListener('keydown', toggleVisibilityOnKeyPress)
+    }
+  }, [])
 
   return (
-    <div className={s.grid}>
-      <div className={cn(gridClassName, s.debugger)}>
-        {Array.from({ length: columns }).map((_, key) => (
+    <div aria-hidden className={isVisible ? s['grid'] : 'hidden'} ref={ref}>
+      <div className={fixed ? s['grid--fixed'] : s['grid--fluid']}>
+        {Array.from({ length: columns }, (_, key) => (
           <span key={key} />
         ))}
       </div>
     </div>
   )
 }
+
+export default GridDebugger

@@ -1,56 +1,71 @@
-.grid {
-  position: fixed;
-  top: 0;
-  left: 0;
+@import '~/css/helpers';
+
+$columns: 12;
+$columns-mobile: 4;
+$gap: (
+  mobile: 16px,
+  desktop: 24px
+);
+$margin: (
+  mobile: 16px,
+  desktop: 24px
+);
+$fixed-width: 1280px;
+
+@mixin apply-grid($type: 'fluid') {
+  display: grid;
   width: 100%;
-  height: 100vh;
-  pointer-events: none;
-  z-index: 10000;
-}
+  height: 100%;
+  grid-gap: var(--gap);
+  grid-template-columns: repeat(var(--columns), minmax(0, 1fr));
 
-.debugger {
-  position: absolute;
-  inset: 0;
-  background-image: linear-gradient(
-    0deg,
-    rgb(0 0 0 / 0.1) 50%,
-    rgb(247 181 68 / 0.1) 50%
-  );
-  background-size: 8px 8px;
-
-  span {
-    background: pink;
-    opacity: 0.33;
+  @if $type == 'fluid' {
+    padding: 0 var(--margin);
+  } @else if $type == 'fixed' {
+    margin: 0 auto;
+    max-width: var(--width);
   }
 }
 
-.layout-block {
-  max-width: var(--layout-width);
-  margin-left: auto;
-  margin-right: auto;
-  width: 100%;
+@mixin responsive-settings {
+  --columns: #{$columns};
+  --gap: #{tovw(map-get($gap, 'desktop'), map-get($gap, 'desktop'))};
+  --margin: #{tovw(map-get($margin, 'desktop'), map-get($margin, 'desktop'))};
+
+  @include respond-to('mobile') {
+    --columns: #{$columns-mobile};
+    --gap: #{tovw(map-get($gap, 'mobile'), map-get($gap, 'mobile'))};
+    --margin: #{tovw(map-get($margin, 'mobile'), map-get($margin, 'mobile'))};
+  }
+
+  --width: #{calc($fixed-width - (2 * var(--margin)))};
 }
 
-.layout-block-inner {
-  padding-left: var(--layout-margin);
-  padding-right: var(--layout-margin);
+.grid {
+  @include responsive-settings;
+
+  position: fixed;
+  z-index: 9999;
+  background-image: linear-gradient(
+    0deg,
+    rgb(0 0 0 / 0.03) 50%,
+    rgb(255 0 0 / 0.03) 50%
+  );
+  background-size: var(--gap) var(--gap);
   width: 100%;
-}
+  height: 100vh;
+  inset: 0;
 
-.layout-grid {
-  @extend %layout-block !optional;
+  span {
+    opacity: 0.15;
+    background: var(--inspect-color);
+  }
 
-  display: grid;
-  grid-template-columns: repeat(var(--layout-columns-count), minmax(0, 1fr));
-  grid-gap: var(--layout-columns-gap);
-  width: 100%;
-}
+  &--fluid {
+    @include apply-grid('fluid');
+  }
 
-.layout-grid-inner {
-  @extend %layout-block-inner !optional;
-
-  display: grid;
-  grid-template-columns: repeat(var(--layout-columns-count), minmax(0, 1fr));
-  grid-gap: var(--layout-columns-gap);
-  width: 100%;
+  &--fixed {
+    @include apply-grid('fixed');
+  }
 }

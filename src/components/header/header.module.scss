@@ -20,7 +20,7 @@
 
 .header {
   height: 4.5rem;
-  padding: 0 tovw(16px, 16px, 'mobile');
+  padding: 0 tovw(16px, 16px);
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -135,6 +135,7 @@
 
     & span {
       display: none;
+
       @screen lg {
         display: inline;
       }
@@ -147,10 +148,7 @@
     display: flex;
     flex-direction: column;
     position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
+    inset: 0;
     z-index: 100;
     background: var(--color-black);
   }
@@ -181,9 +179,9 @@
   }
 }
 
-@media (min-width: 1024px) {
+@media (width >= 1024px) {
   .header {
-    padding: 0 tovw(30px);
+    padding: 0 tovw(24px, 24px);
   }
 
   .logo {
