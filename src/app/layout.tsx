@@ -4,7 +4,13 @@ import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 
 import { Header } from '~/components/header'
-import { siteURL } from '~/lib/constants'
+import { isDev, siteURL } from '~/lib/constants'
+
+const GridDebugger = dynamic(() => import('~/lib/debug/grid-debugger'), {
+  ssr: false
+})
+
+import dynamic from 'next/dynamic'
 
 import { AppHooks } from './app-hooks'
 import { Providers } from './providers'
@@ -40,6 +46,7 @@ const RootLayout = ({ children }: { children: React.ReactNode }) => {
         <Providers>
           <Header />
           {children}
+          {isDev && <GridDebugger />}
           <AppHooks />
         </Providers>
       </body>

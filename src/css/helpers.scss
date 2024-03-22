@@ -1,26 +1,35 @@
 @use 'sass:string';
 @use 'sass:math';
 
-/* stylelint-disable-next-line number-max-precision */
-$golden-ratio: 1.6180339887498948482;
+$golden-ratio: 1.618;
 $reciprocal-golden-ratio: 1 / $golden-ratio;
 $duration: $reciprocal-golden-ratio * 1.2;
+$breakpoints: (
+  'mobile': (
+    max-width: 800px
+  ),
+  'desktop': (
+    max-width: 1440px
+  )
+);
+
+@mixin respond-to($breakpoint) {
+  @if map-has-key($breakpoints, $breakpoint) {
+    @media #{inspect(map-get($breakpoints, $breakpoint))} {
+      @content;
+    }
+  } @else {
+    @warn 'Unfortunately, no value could be retrieved from `#{$breakpoint}`. ' + 'Available breakpoints are: #{map-keys($breakpoints)}.';
+  }
+}
 
 @function tovw($target, $min: 'placeholder', $context: 1920px) {
-  @if $context == 'desktop-large' {
-    $context: 1920px;
-  }
-
   @if $context == 'desktop' {
     $context: 1440px;
   }
 
-  @if $context == 'tablet' {
-    $context: 620px;
-  }
-
   @if $context == 'mobile' {
-    $context: 375px;
+    $context: 800px;
   }
 
   @if $target == 0 {
