@@ -38,7 +38,7 @@ export const useStorage = <Schema extends z.ZodTypeAny>(
       if (isDisabled) return
       const nextValue =
         typeof valueOrUpdater === 'function'
-          ? (valueOrUpdater as Function)(prev.current)
+          ? (valueOrUpdater as (value: typeof prev.current) => typeof prev.current)(prev.current)
           : (valueOrUpdater as Value)
       window[type].setItem(key, JSON.stringify(nextValue))
       query.refetch()
