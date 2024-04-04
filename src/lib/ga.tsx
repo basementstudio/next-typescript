@@ -1,8 +1,8 @@
-import { useRouter } from 'next/router'
+import { usePathname } from 'next/navigation'
 import Script from 'next/script'
 import * as React from 'react'
 
-import { gaTrackingId } from './constants'
+import { gaTrackingId, siteURL } from './constants'
 
 declare global {
   interface Window {
@@ -77,15 +77,16 @@ export const GAScripts = () => {
 
 // Use this hook in _app.tsx
 export const useAppGA = () => {
-  const router = useRouter()
+  const pathname = usePathname()
+
+  const url = React.useMemo(
+    () =>
+      String(siteURL).substring(0, String(siteURL).length - 1) +
+      (pathname ?? ''),
+    [pathname]
+  )
 
   React.useEffect(() => {
-    const handleRouteChange = (url: string) => {
-      pageview(url)
-    }
-    router.events.on('routeChangeComplete', handleRouteChange)
-    return () => {
-      router.events.off('routeChangeComplete', handleRouteChange)
-    }
-  }, [router.events])
+    pageview(url)
+  }, [pathname, url])
 }
