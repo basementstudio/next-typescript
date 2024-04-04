@@ -42,7 +42,7 @@ export const metadata: Metadata = {
 const RootLayout = ({ children }: { children: React.ReactNode }) => {
   return (
     <html lang="en">
-      <body style={{ opacity: 0 }} className={inter.variable}>
+      <body className={inter.variable}>
         <Providers>
           <Header />
           {children}
