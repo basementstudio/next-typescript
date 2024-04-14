@@ -8,6 +8,7 @@ declare global {
   interface Window {
     gtag: undefined | ((...args: any[]) => void)
     chaneFromCodeSandbox?: boolean
+    // 
   }
 }
 
