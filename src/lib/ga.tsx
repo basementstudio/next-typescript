@@ -7,6 +7,7 @@ import { gaTrackingId, siteURL } from './constants'
 declare global {
   interface Window {
     gtag: undefined | ((...args: any[]) => void)
+    chaneFromCodeSandbox?: boolean
   }
 }
 
