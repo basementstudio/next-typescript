@@ -15,8 +15,10 @@
     "tsc": "tsc --pretty --noEmit"
   },
   "dependencies": {
+    "@gsap/react": "^2.1.1",
     "@tanstack/react-query": "^5.32.0",
     "clsx": "^2.1.1",
+    "gsap": "^3.12.5",
     "hls.js": "^1.5.8",
     "just-debounce-it": "^3.2.0",
     "mousetrap": "1.6.5",
