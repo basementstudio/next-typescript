@@ -1,8 +1,8 @@
 'use client'
 
-import React, { useEffect } from 'react'
-import gsap from 'gsap'
 import { useGSAP } from '@gsap/react'
+import gsap from 'gsap'
+import React, { useEffect } from 'react'
 
 import { useAppStore } from '~/context/use-app-store'
 import {
