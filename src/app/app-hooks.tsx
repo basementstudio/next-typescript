@@ -23,6 +23,7 @@ export const AppHooks = () => {
     console.log(basementLog)
   }
 
+  // eslint-disable-next-line react-hooks/rules-of-hooks
   if (gaTrackingId) useAppGA()
 
   useOverflowDebuggerInDev()
